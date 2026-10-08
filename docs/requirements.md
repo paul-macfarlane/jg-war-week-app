@@ -3,34 +3,92 @@
 Owned by Paul. AI may propose changes; none land without approval.
 
 ## Profile
-- **Audience:** just me / small group / public-commercial
-- **Stage:** prototype / product
-- **Relaxed for this project:** <anything relaxed beyond what the profile implies, or "none">
+- **Audience:** small group. Jahnel Group employees plus partner-company participants (LTI, InfoLink), ~100–125 people per edition.
+- **Stage:** product. First goal is a coherent version that gets Jason's buy-in.
+- **Usage shape:** intense for one week a year, near zero otherwise. It must be rock solid during War Week; the rest of the year only the archive needs to work.
+- **Relaxed for this project:** scale.
 
 ## Purpose
-<One or two sentences: what problem this solves and for whom.>
+During War Week, one place where employees see what's happening, the schedule and the standings, and where organizers and hosts record results so standings stay live. After the week, it keeps the history.
+
+### Problems it solves
+1. Hosts track results separately and report back to Jason, who then records them.
+2. Participants don't have a good sense of the live score.
+3. Match history is hard to find, whether you're in the event (how is the other side of my bracket going?) or not.
+4. History gets lost over time when the wiki isn't kept up and things are scattered.
+
+And it must be **easy for Jason to administer**. If running War Week in the app is more work than the wiki, it fails.
 
 ## Character
-<How the app should look and sound. A few words on tone, visual feel, anything that makes it its own.>
+- Feels like War Week: competitive, a little irreverent, Jahnel Group through and through.
+- JG branding is the baseline look. Each edition's theme comes through in naming (what teams are called, e.g. Houses, Tribes) and in the pages Organizers write.
+- Copy is plain and direct. No marketing voice.
 
 ## Design
-- **Design system:** <Claude Design link: colors, type, core components>
-- **Screens:** <Claude Design link(s) for approved screens>
+- **Design system:** <Claude Design link, TBD>
+- **Screens:** <Claude Design links, TBD>
+
+## Roles
+- **Organizer:** runs the whole edition (Jason, Paul). Manages the Organizer list.
+- **Host:** runs one or more competitions (e.g. a pool tournament host). Assigned by an Organizer. Records results for their competitions.
+- **Participant:** anyone signed in. Reads everything; can self-report results where a host allows it.
 
 ## Features
-Each feature names who uses it and when. If it can't, it doesn't belong here.
 
 | Feature | Use case (who, when) | Core journey? | Detail |
 |---|---|---|---|
-| <feature> | <e.g. "Mike, Sunday morning, checking his picks"> | yes/no | [features/<feature>.md](features/<feature>.md) or — |
+| Sign in | Any employee opening the app with their Jahnel Group Google account | yes | — |
+| Standings | A participant on Tuesday night checking which team is ahead | yes | — |
+| Competitions & results | A host recording a bracket match as it finishes; points land in standings when the competition closes | yes | [features/competitions.md](features/competitions.md) (being defined) |
+| Match history | A pool player checking how the other side of the bracket is going; someone who missed Tournament Night looking up how the Smash bracket played out | yes | [features/competitions.md](features/competitions.md) |
+| Self-report | A player in a large tournament reporting their own match so the host doesn't have to chase every result | yes | [features/competitions.md](features/competitions.md) |
+| Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition | yes | — |
+| Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies. Honors with recipients, no points | no | — |
+| Teams & roster | Jason setting up teams, leaders ("Ship Captains") and members before the week. Free-for-all editions have no teams | yes | — |
+| Hosts | Jason assigning a host to each competition before the week | yes | [features/competitions.md](features/competitions.md) |
+| Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki | yes | — |
+| Edition lifecycle | Jason creating War Week XII, running it, ending it with a winner so it moves to the archive. An edition is either teams or free-for-all | yes | — |
+| Archive | Anyone looking back at who won War Week IX and how, or at everything one person has won across years | yes | — |
+| Organizer list | Jason adding Paul as an Organizer | no | — |
+| Install to home screen | A participant adding the app to their phone's home screen for the week | no | — |
 
-Core journeys get e2e coverage.
+Core journeys get e2e coverage. The core functionality of each role is tested:
+1. **Participant:** checks standings, results and match history on their phone; self-reports a match where allowed.
+2. **Host:** records results; points land in standings.
+3. **Organizer:** sets up an edition (teams, hosts, competitions, pages), runs it, ends it, and it lands in the archive.
+
+### Structured vs. pages
+Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links). Sign-up forms and similar stay as external links in pages.
 
 ## Non-functional
-<Only what differs from or adds to the global standards. Leave empty if nothing does.>
+- Access is internal only: every page requires sign-in. Jahnel Group Google accounts first; LTI and InfoLink participants later (see Deferred).
+- Error alerting and logs good enough to debug, per the small-group profile.
 
 ## Out of scope
-<Things deliberately not built, so they don't creep back in.>
+- Anyone outside Jahnel Group and its War Week partner companies, and any event other than War Week.
+- Marketing or "about" pages.
+- Offline support.
+
+## Pitch to Jason
+Ideas that need his yes before building.
+- In-app sign-up and enrollment for competitions.
+- Closing ceremonies run-through (finale slideshow) and a personal "War Week Wrapped" recap for each participant.
+- Per-edition color theming.
+- Accomplishments / immunity (lighter than awards; e.g. War Week X).
+
+## Suggestions
+Ideas from others at JG, captured with who suggested them. None yet.
+
+## Deferred
+Known future needs, not needed for the first version. The architecture must leave room for each of these without a rewrite, but none are built until approved.
+- Sign-in for LTI and InfoLink participants, who have non-JG emails.
+- League formats (Swiss, round robin) for chess and MTG.
+- Best-of matches (e.g. a best-of-3 final).
+- Chaining a qualifier into bracket seeding.
+- A participation result auto-creating an award (e.g. Black Midnight).
+- Backfilling editions before War Week XI.
 
 ## Open questions
-<Contradictions or gaps waiting on a decision.>
+- **Competition types:** to be settled in a dedicated grill using Paul's Notion mapping; output goes to `features/competitions.md`.
+- **Correcting the archive:** can Organizers fix results in past editions, or are they frozen once ended?
+- **Partner sign-in:** how do LTI and InfoLink participants sign in (their own Google/Microsoft accounts, or something else)?
