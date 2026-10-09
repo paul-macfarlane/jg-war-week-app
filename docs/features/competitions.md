@@ -4,7 +4,9 @@
 **Core journey:** yes (participant views and self-reports, host records, organizer sets up)
 **Design:** <Claude Design link, TBD>
 
-Priorities, in order: easy for hosts and participants, then flexible. Simple choices in front, one flexible model behind.
+Priorities, in order: easy for participants, hosts and organizers, then flexible. Simple choices in front, one flexible model behind.
+
+Background: Paul's [mapping of past competitions to formats](https://app.notion.com/p/JG-War-Week-App-Assess-if-current-game-types-match-what-is-needed-3efc4dbb621780e99537fab116f3c14e) (Notion). This spec stands on its own; see [Examples](#examples) for what each named competition was.
 
 ## Formats
 A host picks one of six formats. The first four are all rounds of matches, where each match ranks its entrants.
@@ -13,7 +15,7 @@ A host picks one of six formats. The first four are all rounds of matches, where
 |---|---|---|
 | **Ranking** | One match, all entrants ranked | Memes, billable hours, beer cans, a Team Night event |
 | **Bracket** | Single elimination, 2 per match, winner advances | Pool, Smash, Beyblade finals |
-| **Heats** | Tables of several entrants, top N advance, until a winner | Catan, Beer & Cards, Mario Kart, group stage then knockout |
+| **Heats** | Heats of several entrants, top N advance, until a winner | Catan, Beer & Cards, Mario Kart, group stage then knockout |
 | **Survival** | Everyone in one pool, some eliminated each round; each round can have a description | Ultimate Survivor, Tri-Wizard |
 | **Best score** | Attempts, ranked by score; optionally top N advance | Beyblade and Bouncy Pong qualifiers, the steak wall |
 | **Participation** | Who completed it | Midnight Club, Beast Mode, Black Tuesday, AI survey |
@@ -28,16 +30,17 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Deleting:** Organizers only. Before deleting, the app shows the impact (matches and points removed, and from whom). Deletion is permanent.
 
 ## Entrants
-- An entrant is an individual, a squad or a whole team. Squads can enter any format. Hosts create squads inline by picking members.
+- Each competition sets its entrant type: **individuals**, **squads** or **teams**. Every entrant in a competition is that type; an individual never faces a squad or a team. Any format can use any entrant type.
+- A squad can be any size. Hosts create squads inline by picking members.
 - In team editions, a squad's members must all be on the same team.
 - **Ranking, Bracket, Heats, Survival** have an entrant list, built from the roster. "Add everyone" adds anyone not already in; pressing it again after roster changes adds only the missing people. Entrants can be removed.
-- **Participation and Best score** have no entrant list. Anyone on the roster (or any squad) can be marked done or log a score.
+- **Participation and Best score** have no entrant list. Anyone on the roster (or any squad, for squad competitions) can be marked done or log a score.
 - No late-entry feature. Hosts can edit any match's entrants by hand, which covers late arrivals.
 
 ## Building matches
 - The app builds the first round automatically when the host starts the competition. Order is random by default; the host can reorder before starting.
 - **Bracket:** byes go to the top of the order when the count isn't a power of two. Optional "Play a 3rd place match" (off by default); when off, semifinal losers tie for 3rd, quarterfinal losers tie for 5th, and so on.
-- **Heats:** the host picks a table size and how many advance; the app splits entrants as evenly as possible (uneven tables allowed). Table size can change between rounds (e.g. groups, then a final table). The host can move people between tables before play.
+- **Heats:** the host picks a heat size and how many advance; the app splits entrants as evenly as possible (uneven heats allowed). Heat size can change between rounds (e.g. heats of 4, then a final heat). The host can move entrants between heats before play.
 - Later rounds fill in automatically as results come in.
 
 ## Recording results
@@ -70,3 +73,22 @@ In Heats, Survival or a Best score cutoff, the app flags the tie and the host pi
 
 ## Corrections
 Hosts and Organizers can edit anything in their competitions. Every result shows who recorded or changed it.
+
+## Examples
+Past War Week competitions named in this spec.
+- **Memes:** live meme showdown; teams ranked by vote.
+- **Billable hours:** teams ranked by billable hours (or % of their usual hours).
+- **Beer cans:** teams ranked by how many cans they added to the office beer can collection.
+- **Team Night events:** a series of small head-to-head events on Team Night, each one group (or whole team) vs. another, each worth its own points.
+- **Pool, Smash:** classic single-elimination 1v1 brackets.
+- **Beyblade:** a qualifier ranked by best rips, then a finals bracket.
+- **Bouncy Pong:** pairs; a qualifier ranked by best score, then finals between squads.
+- **Catan:** tables of 4–5 players, each table's winner advances to a final table.
+- **Beer & Cards, Mario Kart:** groups of uneven size, top finishers advance to a final group.
+- **Ultimate Survivor (2025):** nearly everyone in one pool; each round a different challenge, some eliminated each round, until one winner.
+- **Tri-Wizard (2023):** each house entered its 12 best into an elimination-style challenge; houses scored by their best finisher's place.
+- **Steak wall (2025):** eat as many as you can; a best-score event.
+- **Midnight Club / Black Midnight:** work from 12:00 AM to noon Sunday; points per finisher or teams ranked by headcount.
+- **Beast Mode:** a morning workout; points for completing it.
+- **Black Tuesday:** a focused, no-nonsense work day; in 2024 points by tier for 12, 15 or 18 hours.
+- **AI survey (2026):** team with the highest completion percentage wins.

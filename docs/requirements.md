@@ -18,7 +18,7 @@ During War Week, one place where employees see what's happening, the schedule an
 3. Match history is hard to find, whether you're in the event (how is the other side of my bracket going?) or not.
 4. History gets lost over time when the wiki isn't kept up and things are scattered.
 
-And it must be **easy for Jason to administer**. If running War Week in the app is more work than the wiki, it fails.
+It must be **easy to use for everyone: participants, hosts and organizers.** Participants find what they need in a tap or two on their phone, hosts record results in seconds, and running War Week in the app is less work for Jason than the wiki was. If any of the three finds it harder than what they did before, it fails.
 
 ## Character
 - Feels like War Week: competitive, a little irreverent, Jahnel Group through and through.
