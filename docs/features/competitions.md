@@ -1,6 +1,6 @@
 # Competitions
 
-**Use case:** Hosts run their events and record results as they happen; everyone sees results, match history and standings live.
+**Features:** Competitions & results, Hosts, Self-report, Match history, Standings
 **Core journey:** yes (participant views and self-reports, host records, organizer sets up)
 **Design:** <Claude Design link, TBD>
 
@@ -61,18 +61,19 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Team editions:** points go to the team. An individual's points count for their team.
 - **Free-for-all editions:** points go to individuals. Each member of a squad gets the squad's full points.
 - **Survival with team points:** each team scores by its best-placed member.
-- Standings show every competition's point value in one place so Organizers can keep points balanced.
+- **A person's points** (person page, team editions) are the points they can be concretely tied to: their own placings, their squad's points (full to each member), Survival team points for the best-placed member, and Participation completions, including team rankings by headcount or percentage (credited to each person who completed). Team-entrant results show on members' pages but don't count toward their points.
+- **Standings** show ranked totals (teams, or individuals in free-for-all, where your own row is easy to find) and every competition's status, point value and where its points went, with subjective points and their reasons. Seeing every point value in one place lets Organizers keep points balanced.
 
 ## Finishing
 - Bracket, Heats and Survival finish when the final match is recorded; Ranking when the order is entered. Points land immediately.
-- Participation and Best score are open-ended: a host or Organizer taps **Finish**. Until then their points show in standings as **in progress**.
+- Participation and Best score are open-ended: a host or Organizer taps **Finish**, or the edition ends ([editions.md](editions.md#lifecycle)). Until then their points show in standings as **in progress**.
 - No close/reopen ceremony. Editing a finished competition updates points and standings recalculate.
 
 ## Ties that block advancement
 In Heats, Survival or a Best score cutoff, the app flags the tie and the host picks who advances. No automatic tie-break rules.
 
 ## Corrections
-Hosts and Organizers can edit anything in their competitions. Every result shows who recorded or changed it.
+Hosts and Organizers can edit anything in their competitions. Once the edition ends, only Organizers can. Every result shows who recorded or changed it.
 
 ## Examples
 Past War Week competitions named in this spec.

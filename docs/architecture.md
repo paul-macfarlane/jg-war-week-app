@@ -33,7 +33,7 @@ Modules follow the requirements' feature list: `competitions`, `standings`, `peo
 
 - **Dependency direction:** `app` → a module's `service`/`queries` → its `domain`. Domain imports nothing from the database, Next.js or services. Modules use each other only through `service`/`queries` exports, never each other's tables. Enforced by lint.
 - **Services:** every function is `(ctx, input)` with `ctx = { db, actor, now }`. It checks `can()`, runs one transaction, and records who did it. Services throw typed errors (NotAllowed, NotFound, Invalid). Authorization lives here because Server Actions are public endpoints.
-- **Queries:** reads need only a signed-in actor (every user can read everything), so they return page-shaped data with no permission logic. Standings composes other modules' queries and runs the pure scoring.
+- **Queries:** reads need a signed-in actor and one visibility rule: Setup editions are visible to Organizers only, everything else to every user. Beyond that, queries return page-shaped data with no permission logic. Standings composes other modules' queries and runs the pure scoring.
 - **Server Actions:** go through one wrapper that resolves the actor, validates input, logs one JSON line with a request id, maps typed errors to plain messages and passes unexpected ones to `reportError()`. No business logic.
 - **Error boundaries** on every route from the start.
 

@@ -31,34 +31,38 @@ It must be **easy to use for everyone: participants, hosts and organizers.** Par
 - **Design system:** <Claude Design link, TBD>
 - **Screens:** <Claude Design links, TBD>
 
-## Roles
+## App-wide rules
+
+### Roles
 - **Organizer:** runs the whole edition (Jason, Paul). Manages the Organizer list.
 - **Host:** runs one or more competitions (e.g. a pool tournament host). Assigned by an Organizer. Records results for their competitions.
-- **User:** anyone who signs in. Users can read everything.
+- **User:** anyone who signs in. Users can read everything in Live and Ended editions; Setup editions are visible to Organizers only.
 - **Participant:** a person on the edition's roster. Participants who are also users can self-report results where a host allows it.
 
-## People
-- A person is a roster entry, owned by Organizers. A person can exist without an email and without ever signing in (e.g. Bucky the Horse); they can be entered by hosts but can't self-report.
-- A person has one email. Signing in links the account to the person with that email. If someone's email changes, an Organizer edits it.
-- A person persists across years: each edition's roster reuses existing people, so history follows them.
+### Navigation
+Home, Competitions, Info and Archive for everyone; Manage for Organizers (editions, teams and roster, competitions and hosts, subjective points, awards, Organizer list). Things are edited where they live: a host records on the match, an Organizer edits a page from the page. Person pages are reached by tapping a name; your own from your avatar.
+
+### Structured vs. pages
+Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links, no images), listed under Info in the order Organizers set (e.g. schedule above FAQ). JG branding ships with the app. Sign-up forms and similar stay as external links in pages.
 
 ## Features
 
 | Feature | Use case (who, when) | Core journey? | Detail |
 |---|---|---|---|
 | Sign in | Any employee opening the app with their Jahnel Group Google account | yes | — |
-| Standings | A participant on Tuesday night checking which team is ahead | yes | — |
+| Home | Anyone opening the app to see where the current War Week stands | yes | [features/editions.md](features/editions.md) |
+| Standings | A participant on Tuesday night checking which team is ahead | yes | [features/competitions.md](features/competitions.md) |
 | Competitions & results | A host recording a bracket match as it finishes; points land in standings as soon as the result is decided | yes | [features/competitions.md](features/competitions.md) |
 | Match history | A pool player checking how the other side of the bracket is going; someone who missed Tournament Night looking up how the Smash bracket played out | yes | [features/competitions.md](features/competitions.md) |
 | Self-report | A player in a large tournament reporting their own match so the host doesn't have to chase every result | yes | [features/competitions.md](features/competitions.md) |
 | Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition | yes | — |
 | Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies. Honors with recipients, no points | no | — |
-| Teams & roster | Jason importing the War Week sign-up sheet (name, email, team, leader columns) in one go; the app matches existing people by email, then name, and shows existing vs. new before saving. Teams, leaders and emails can also be edited in the app. In a team edition everyone on the roster is on a team, and nobody changes teams mid-week. Free-for-all editions have no teams | yes | — |
+| Teams & roster | Jason importing the War Week sign-up sheet in one go | yes | [features/people.md](features/people.md) |
 | Hosts | Jason creating a competition and assigning its host before the week | yes | [features/competitions.md](features/competitions.md) |
-| Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki. Pages are ordered by Organizers (e.g. schedule above FAQ) | yes | — |
-| Edition lifecycle | Jason creating War Week XII, running it, ending it with a winner so it moves to the archive. An edition is either teams or free-for-all. After an edition ends, Organizers can still edit it (e.g. backfilling War Week XI, entering awards); hosts and participants become read-only | yes | — |
-| Archive | Anyone looking back at who won War Week IX and how | yes | — |
-| Person page | A participant checking their results and the points they've contributed this week; anyone looking at everything one person has won across years. No individual leaderboard in team editions | no | — |
+| Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki | yes | — |
+| Edition lifecycle | Jason creating War Week XII, running it, and ending it with a winner so it moves to the archive | yes | [features/editions.md](features/editions.md) |
+| Archive | Anyone looking back at who won War Week IX and how | yes | [features/editions.md](features/editions.md) |
+| Person page | A participant checking their results and the points they've contributed this week; anyone looking at everything one person has won across years | no | [features/people.md](features/people.md) |
 | Organizer list | Jason adding Paul as an Organizer | no | — |
 | Install to home screen | A participant adding the app to their phone's home screen for the week | no | — |
 
@@ -66,9 +70,6 @@ Core journeys get e2e coverage. The core functionality of each role is tested:
 1. **Participant:** checks standings, results and match history on their phone; self-reports a match where allowed.
 2. **Host:** records results; points land in standings.
 3. **Organizer:** sets up an edition (teams, hosts, competitions, pages), runs it, ends it, and it lands in the archive.
-
-### Structured vs. pages
-Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links, no images). JG branding ships with the app. Sign-up forms and similar stay as external links in pages.
 
 ## Non-functional
 - Access is internal only: every page requires sign-in. Jahnel Group Google accounts first; LTI and InfoLink participants later (see Deferred).
