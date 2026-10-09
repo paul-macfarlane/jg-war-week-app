@@ -39,16 +39,17 @@ And it must be **easy for Jason to administer**. If running War Week in the app 
 |---|---|---|---|
 | Sign in | Any employee opening the app with their Jahnel Group Google account | yes | — |
 | Standings | A participant on Tuesday night checking which team is ahead | yes | — |
-| Competitions & results | A host recording a bracket match as it finishes; points land in standings when the competition closes | yes | [features/competitions.md](features/competitions.md) (being defined) |
+| Competitions & results | A host recording a bracket match as it finishes; points land in standings as soon as the result is decided | yes | [features/competitions.md](features/competitions.md) |
 | Match history | A pool player checking how the other side of the bracket is going; someone who missed Tournament Night looking up how the Smash bracket played out | yes | [features/competitions.md](features/competitions.md) |
 | Self-report | A player in a large tournament reporting their own match so the host doesn't have to chase every result | yes | [features/competitions.md](features/competitions.md) |
 | Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition | yes | — |
 | Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies. Honors with recipients, no points | no | — |
-| Teams & roster | Jason setting up teams, leaders ("Ship Captains") and members before the week. Free-for-all editions have no teams | yes | — |
-| Hosts | Jason assigning a host to each competition before the week | yes | [features/competitions.md](features/competitions.md) |
+| Teams & roster | Jason setting up teams, leaders ("Ship Captains") and members before the week. In a team edition everyone on the roster is on a team, and nobody changes teams mid-week. Free-for-all editions have no teams | yes | — |
+| Hosts | Jason creating a competition and assigning its host before the week | yes | [features/competitions.md](features/competitions.md) |
 | Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki | yes | — |
 | Edition lifecycle | Jason creating War Week XII, running it, ending it with a winner so it moves to the archive. An edition is either teams or free-for-all | yes | — |
-| Archive | Anyone looking back at who won War Week IX and how, or at everything one person has won across years | yes | — |
+| Archive | Anyone looking back at who won War Week IX and how | yes | — |
+| Person page | A participant checking their results and the points they've contributed this week; anyone looking at everything one person has won across years. No individual leaderboard in team editions | no | — |
 | Organizer list | Jason adding Paul as an Organizer | no | — |
 | Install to home screen | A participant adding the app to their phone's home screen for the week | no | — |
 
@@ -75,6 +76,8 @@ Ideas that need his yes before building.
 - Closing ceremonies run-through (finale slideshow) and a personal "War Week Wrapped" recap for each participant.
 - Per-edition color theming.
 - Accomplishments / immunity (lighter than awards; e.g. War Week X).
+- Hosts creating their own competitions and setting their points.
+- Stats and visualizations: scoring breakdowns, trends over the week, overall scores (Competiscore had this). Mocked in Claude Design for the pitch so it can get real feedback.
 
 ## Suggestions
 Ideas from others at JG, captured with who suggested them. None yet.
@@ -89,6 +92,5 @@ Known future needs, not needed for the first version. The architecture must leav
 - Backfilling editions before War Week XI.
 
 ## Open questions
-- **Competition types:** to be settled in a dedicated grill using Paul's Notion mapping; output goes to `features/competitions.md`.
 - **Correcting the archive:** can Organizers fix results in past editions, or are they frozen once ended?
 - **Partner sign-in:** how do LTI and InfoLink participants sign in (their own Google/Microsoft accounts, or something else)?
