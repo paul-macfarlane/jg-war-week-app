@@ -7,6 +7,7 @@ Owned by Paul. AI may propose changes; none land without approval.
 - **Stage:** product. First goal is a coherent version that gets Jason's buy-in.
 - **Usage shape:** intense for one week a year, near zero otherwise. It must be rock solid during War Week; the rest of the year only the archive needs to work.
 - **Relaxed for this project:** scale.
+- **Timeline:** pitch to Jason targeted for end of October 2026. Timeline doesn't drive tech choices; the goal is something Paul believes in, shown early enough to get feedback.
 
 ## Purpose
 During War Week, one place where employees see what's happening, the schedule and the standings, and where organizers and hosts record results so standings stay live. After the week, it keeps the history.
@@ -31,7 +32,13 @@ And it must be **easy for Jason to administer**. If running War Week in the app 
 ## Roles
 - **Organizer:** runs the whole edition (Jason, Paul). Manages the Organizer list.
 - **Host:** runs one or more competitions (e.g. a pool tournament host). Assigned by an Organizer. Records results for their competitions.
-- **Participant:** anyone signed in. Reads everything; can self-report results where a host allows it.
+- **User:** anyone who signs in. Users can read everything.
+- **Participant:** a person on the edition's roster. Participants who are also users can self-report results where a host allows it.
+
+## People
+- A person is a roster entry, owned by Organizers. A person can exist without an email and without ever signing in (e.g. Bucky the Horse); they can be entered by hosts but can't self-report.
+- A person has one email. Signing in links the account to the person with that email. If someone's email changes, an Organizer edits it.
+- A person persists across years: each edition's roster reuses existing people, so history follows them.
 
 ## Features
 
@@ -44,10 +51,10 @@ And it must be **easy for Jason to administer**. If running War Week in the app 
 | Self-report | A player in a large tournament reporting their own match so the host doesn't have to chase every result | yes | [features/competitions.md](features/competitions.md) |
 | Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition | yes | — |
 | Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies. Honors with recipients, no points | no | — |
-| Teams & roster | Jason setting up teams, leaders ("Ship Captains") and members before the week. In a team edition everyone on the roster is on a team, and nobody changes teams mid-week. Free-for-all editions have no teams | yes | — |
+| Teams & roster | Jason importing the War Week sign-up sheet (name, email, team, leader columns) in one go; the app matches existing people by email, then name, and shows existing vs. new before saving. Teams, leaders and emails can also be edited in the app. In a team edition everyone on the roster is on a team, and nobody changes teams mid-week. Free-for-all editions have no teams | yes | — |
 | Hosts | Jason creating a competition and assigning its host before the week | yes | [features/competitions.md](features/competitions.md) |
 | Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki | yes | — |
-| Edition lifecycle | Jason creating War Week XII, running it, ending it with a winner so it moves to the archive. An edition is either teams or free-for-all | yes | — |
+| Edition lifecycle | Jason creating War Week XII, running it, ending it with a winner so it moves to the archive. An edition is either teams or free-for-all. After an edition ends, Organizers can still edit it (e.g. backfilling War Week XI, entering awards); hosts and participants become read-only | yes | — |
 | Archive | Anyone looking back at who won War Week IX and how | yes | — |
 | Person page | A participant checking their results and the points they've contributed this week; anyone looking at everything one person has won across years. No individual leaderboard in team editions | no | — |
 | Organizer list | Jason adding Paul as an Organizer | no | — |
@@ -59,7 +66,7 @@ Core journeys get e2e coverage. The core functionality of each role is tested:
 3. **Organizer:** sets up an edition (teams, hosts, competitions, pages), runs it, ends it, and it lands in the archive.
 
 ### Structured vs. pages
-Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links). Sign-up forms and similar stay as external links in pages.
+Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links, no images). JG branding ships with the app. Sign-up forms and similar stay as external links in pages.
 
 ## Non-functional
 - Access is internal only: every page requires sign-in. Jahnel Group Google accounts first; LTI and InfoLink participants later (see Deferred).
@@ -69,6 +76,7 @@ Structured data only where the app computes something or it's history people car
 - Anyone outside Jahnel Group and its War Week partner companies, and any event other than War Week.
 - Marketing or "about" pages.
 - Offline support.
+- Team drafting. Teams are drafted outside the app and arrive through the sign-up sheet.
 
 ## Pitch to Jason
 Ideas that need his yes before building.
@@ -84,13 +92,13 @@ Ideas from others at JG, captured with who suggested them. None yet.
 
 ## Deferred
 Known future needs, not needed for the first version. The architecture must leave room for each of these without a rewrite, but none are built until approved.
-- Sign-in for LTI and InfoLink participants, who have non-JG emails.
+- Sign-in for LTI and InfoLink participants, who have non-JG emails. Nothing in the first version may assume every user has a Jahnel Group email.
 - League formats (Swiss, round robin) for chess and MTG.
 - Best-of matches (e.g. a best-of-3 final).
 - Chaining a qualifier into bracket seeding.
 - A participation result auto-creating an award (e.g. Black Midnight).
 - Backfilling editions before War Week XI.
+- Image uploads (team logos, photos, edition banners). Likely returns with per-edition theming.
 
 ## Open questions
-- **Correcting the archive:** can Organizers fix results in past editions, or are they frozen once ended?
 - **Partner sign-in:** how do LTI and InfoLink participants sign in (their own Google/Microsoft accounts, or something else)?
