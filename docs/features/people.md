@@ -1,15 +1,24 @@
 # People
 
-**Features:** Teams & roster, Person page
-**Core journey:** yes (Organizer sets up teams and roster)
-**Design:** <Claude Design link, TBD>
+**Features:** Sign in, Teams & roster, Person page, Organizer list
 
 ## Rules
 
 ### People
 - A person is a roster entry, owned by Organizers. A person can exist without an email and without ever signing in (e.g. Bucky the Horse); they can be entered by hosts but can't self-report.
-- A person has one email. Signing in links the account to the person with that email. If someone's email changes, an Organizer edits it.
+- A person has at most one email, and no two people share one (compared ignoring case). Emails are visible to Organizers only (roster, import, editing a person); everywhere else, including hosts' pickers, people appear by name.
 - A person persists across years: each edition's roster reuses existing people, so history follows them.
+- A person with anything recorded or assigned in an edition (results, attempts, completions, squads, subjective-point credit, a host role) can't be removed from its roster; the app shows where they appear. Someone who withdraws stays on the roster, and hosts handle their remaining matches.
+
+### Sign in
+- Sign-in links the account to the person whose email matches the account's verified email. The link follows the person's current email, so an email change takes effect immediately and the old account loses that person.
+- If someone's email changes, an Organizer edits it. Changing the email of an Organizer or Host shows its own warning naming the access that moves (e.g. "This moves Paul's Organizer access to p.mcfarlane@…").
+- Someone who signs in but matches no person can read the app as a User. During a Live edition, Home tells them: "You're not on the War Week XII roster. If you should be, ask an Organizer." People can't claim a person themselves.
+- Manage shows Organizers sign-ins that matched no person and roster people (especially hosts) who have never signed in, so emails can be fixed before the week.
+
+### Organizers
+- An Organizer is a person who needn't be on any roster.
+- The last Organizer can't be removed.
 
 ### Teams and roster
 - In a team edition everyone on the roster is on a team, and nobody changes teams mid-week. Free-for-all editions have no teams.
@@ -26,7 +35,7 @@
 - No individual leaderboard in team editions.
 
 ## Edge cases
-- **Name matches, email differs:** the import asks whether it's the same person. Yes updates the email; no creates a new person. An email decides who can sign in as that person, so it's never changed silently.
+- **Name matches, email differs:** the import asks whether it's the same person. Yes updates the email; no creates a new person. It's never changed silently.
 - **Missing data:** every row needs a name, and in a team edition a team. Email is optional (e.g. Bucky the Horse). If a required column is missing the import says which and saves nothing; rows missing a required value are flagged in the preview.
 
 ## Open questions

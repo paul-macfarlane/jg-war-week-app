@@ -1,6 +1,6 @@
 # War Week architecture
 
-Owned by Paul. AI proposes options; Paul decides.
+Owned by Paul.
 
 ## Stack
 - **Framework:** Next.js 16 (App Router), React, TypeScript, pnpm. One app; same stack as Paul's other projects.
@@ -32,10 +32,11 @@ src/
 Modules follow the requirements' feature list: `competitions`, `standings`, `people`, `editions`, `pages`, `awards`, `subjective-points`, `access`.
 
 - **Dependency direction:** `app` → a module's `service`/`queries` → its `domain`. Domain imports nothing from the database, Next.js or services. Modules use each other only through `service`/`queries` exports, never each other's tables. Enforced by lint.
-- **Services:** every function is `(ctx, input)` with `ctx = { db, actor, now }`. It checks `can()`, runs one transaction, and records who did it. Services throw typed errors (NotAllowed, NotFound, Invalid). Authorization lives here because Server Actions are public endpoints.
-- **Queries:** reads need a signed-in actor and one visibility rule: Setup editions are visible to Organizers only, everything else to every user. Beyond that, queries return page-shaped data with no permission logic. Standings composes other modules' queries and runs the pure scoring.
+- **Services:** every function is `(ctx, input)` with `ctx = { db, actor, now }`. It checks `can()`, runs one transaction, and records who did it. Services throw typed errors (NotAllowed, NotFound, Invalid, Stale). Authorization lives here because Server Actions are public endpoints. Stale saves ([competitions.md](features/competitions.md#corrections)) are caught by each result write carrying the version the user loaded.
+- **Queries:** reads need a signed-in actor and two visibility rules: Setup editions are visible to Organizers only, and emails appear only in Organizer-only queries. Beyond that, queries return page-shaped data with no permission logic. Standings composes other modules' queries and runs the pure scoring.
 - **Server Actions:** go through one wrapper that resolves the actor, validates input, logs one JSON line with a request id, maps typed errors to plain messages and passes unexpected ones to `reportError()`. No business logic.
 - **Error boundaries** on every route from the start.
+- **Time:** stored in UTC; displayed as the requirements say.
 
 ## Decisions
 
@@ -55,20 +56,26 @@ Built and pitched on Paul's account; moved to a JG-owned Vercel Pro team (with t
 ### Migrations run from a GitHub Action, not the Vercel build
 A failed deploy must never leave production's schema ahead of its code, least of all during War Week. Every migration must work with the code already deployed. Staging runs on a Neon branch.
 - **Alternative:** migrate in the Vercel build (prototype). Rejected for the reason above.
-- **Alternative:** Supabase. Rejected: replaces auth and ORM conventions Paul already owns to gain realtime we don't need.
 
 ### Accounts, people and sign-in policy are separate
 - **Account:** a Better Auth user with one or more provider logins. Adding a provider (e.g. Microsoft) is configuration.
 - **Person:** a roster entry, with any email or none. Owned by Organizers.
 - **Role:** Organizer and Host are stored against the person, never derived from an email domain.
-- An account links to the person whose email matches the account's **provider-verified** email. Unverified emails never link.
+- Linking an account to a person follows [people.md](features/people.md#sign-in). Only **provider-verified** emails link. The link and the person's roles are resolved on every request, so an email change or a removed role takes effect immediately.
 - Who may sign in is decided by one policy function. For v1 it allows verified emails in `ALLOWED_EMAIL_DOMAINS` (`jahnelgroup.com`). Nothing else in the code knows about Jahnel Group's domain: no Google `hd` restriction, no domain checks elsewhere.
+- Sessions expire after a fixed 30 days: Better Auth's expiry is set to 30 days with refresh-on-use turned off (its default is shorter and sliding). Signing in again re-runs the sign-in policy, so a suspended Google account loses access within 30 days.
+- The first Organizer on a new deployment is created by a documented one-off setup step naming their email.
+- **Partner sign-in:** add a Better Auth provider and extend the sign-in policy. People, roles, roster import and linking never look at an email's domain. The Google OAuth client must be **External** (not Workspace-Internal) when it moves to JG, or Google itself blocks non-JG accounts. Microsoft accounts don't always assert a verified email; linking still requires one.
 - E2E tests sign in through a secret-gated test route that is refused in production.
+- **Alternative:** Supabase (Postgres, auth and realtime bundled). Rejected: replaces auth and ORM conventions Paul already owns to gain realtime we don't need.
 - **Alternative:** Clerk or WorkOS. Rejected: a new third party holding employee personal data, an extra dependency during War Week, and a second user list to sync with people. Revisit only if a partner company requires sign-in through its own corporate identity provider.
 
-### Recovery relies on Neon point-in-time restore
-Deleting a competition is permanent by design, and every result can be edited. Undoing a mistake beyond what the audit trail shows means restoring the database to a point in time with Neon. The free plan's restore window is short; the window is confirmed when the database moves to JG, and the restore steps are written down and rehearsed before War Week XII.
-- **Alternative:** soft delete or app-level undo. Rejected: not in the requirements, and adds a state to every query.
+### Recovery: surgical restore, and archive dumps at edition end
+Deleting a competition is permanent by design, and results keep only who recorded them and who last changed them. To undo a mistake, a copy of the database is restored with Neon to just before it, and only the affected rows are copied back, so everyone else's results since are kept. Neon's restore window is confirmed when the database moves to JG, and the steps are written down and rehearsed before War Week XII.
+
+Neon's history only reaches back days, so the archive also gets a long-term copy: when an edition ends and after any backfill, the database owner runs one documented `pg_dump` command and saves the file to a restricted JG Google Drive folder (it contains emails).
+- **Alternative:** soft delete, app-level undo or per-result history. Rejected: not in the requirements, and adds state to every query.
+- **Alternative:** scheduled automated backups (GitHub Action to a repo or Drive). Rejected: the archive changes once or twice a year, so automation and its permissions cost more than the manual step.
 
 ### Fresh on load, no polling or push
 Every page reads from the database at request time; no data caching. A write refreshes the writer's view, and a page refreshes once when the app or tab returns to the foreground (installed iOS apps have no reload or pull-to-refresh). Standings change a few dozen times a week, so nothing more is needed.
@@ -102,17 +109,20 @@ Ranking, Bracket, Heats and Survival share one shape: a competition has entrants
 - **Alternative:** e2e on every PR. Rejected: slower PRs; core journeys before merge to `main` is enough.
 
 ### Sentry for alerts, structured logs for debugging
-Sentry on server and client alerts on unhandled errors. It is added before War Week XII, on JG-owned accounts, not for the pitch; the action wrapper's `reportError()` and the route error boundaries are the seams it plugs into. Each server action logs one JSON line (actor, action, outcome, duration) with a request id shared with Sentry. Sentry receives account ids only: no emails, names or request bodies. Who recorded or changed each result is stored with the result (a requirement), which answers most score questions better than logs.
+Sentry on server and client alerts on unhandled errors. It is added before War Week XII, on JG-owned accounts, not for the pitch; the action wrapper's `reportError()` and the route error boundaries are the seams it plugs into. Each server action logs one JSON line (actor, action, outcome, duration) with a request id shared with Sentry. Sentry receives account ids only: no emails, names or request bodies. Who recorded each result and who last changed it are stored with the result (a requirement), which answers most score questions better than logs.
 - **Alternative:** Vercel logs only. Rejected: no alerting, below the profile floor.
 - **Alternative:** hand-rolled notifier. Rejected: misses client errors and stack traces.
 - Sentry moves to JG ownership with everything else.
 
+### History goes in through the services
+War Week XI's results (for the pitch) and any backfilled edition are loaded by a one-off import script that calls the same services, so every rule and validation applies. Imported results are marked as imported rather than recorded by a person. A backfilled edition goes straight from Setup to Ended.
+- **Alternative:** a seed script writing tables directly. Rejected: it would bypass the rules the archive guard test depends on.
+
 ### Room for Deferred requirements
 Each Deferred item fits without a rewrite:
-- **Partner sign-in (non-JG emails):** add a Better Auth provider and extend the sign-in policy. People, roles, roster import and linking never look at an email's domain. The Google OAuth client must be **External** (not Workspace-Internal) when it moves to JG, or Google itself blocks non-JG accounts. Microsoft accounts don't always assert a verified email; linking still requires one.
 - **League formats (Swiss, round robin):** new format modules on the same rounds and matches. Scoring only sees final places, so it doesn't change.
 - **Best-of matches:** works today by recording games won as the match score (higher score wins). Per-game detail, if wanted, is a child table of match.
 - **Qualifier into bracket seeding:** hosts can already set round-one order by hand. Automatic chaining is a source-competition setting that builds the order from its final places.
 - **Participation result auto-creating an award:** an award gains an optional source competition, and its recipients come from that competition's completions.
-- **Backfilling editions before XI:** editions, people and teams are just data. Where only final results are known, a Ranking competition records them; where only team totals are known, subjective points with a reason fill the gap.
+- **Backfilling editions before XI:** through the same import path as XI. Where only final results are known, a Ranking competition records them; where only team totals are known, subjective points with a reason fill the gap.
 - **Image uploads:** blob storage (to be proposed when approved), image columns on teams and editions, and an image block in pages.
