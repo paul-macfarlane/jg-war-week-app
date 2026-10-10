@@ -1,6 +1,6 @@
 # People
 
-**Features:** Sign in, Teams & roster, Team view, Person page, Organizer list
+**Features:** Sign in, Partner sign-in, Teams & roster, Team view, Person page, Organizer list
 
 ## Rules
 

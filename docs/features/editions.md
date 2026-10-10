@@ -1,6 +1,6 @@
 # Editions
 
-**Features:** Edition lifecycle, Home, Archive, Awards, Pages
+**Features:** Edition lifecycle, Home, Install to home screen, Archive, Awards, Pages
 
 ## Core journey
 **Organizer:** sets up an edition (teams, hosts, competitions, pages), makes it Live, runs it, ends it, and it lands in the archive.
