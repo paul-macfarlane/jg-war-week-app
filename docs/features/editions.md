@@ -1,6 +1,6 @@
 # Editions
 
-**Features:** Edition lifecycle, Home, Archive, Awards
+**Features:** Edition lifecycle, Home, Archive, Awards, Pages
 
 ## Core journey
 **Organizer:** sets up an edition (teams, hosts, competitions, pages), makes it Live, runs it, ends it, and it lands in the archive.
@@ -25,11 +25,17 @@
 
 ### Awards
 - Organizers enter an edition's awards (e.g. MVPs, Top Biller, Black Midnight finishers): honors with recipients, no points.
+- An award has a free-text name (e.g. "Red MVP", "Top Biller – 1st") and an optional one-line description. Recipients are people on the edition's roster.
+- An edition's awards are listed below its standings once it has any.
 
 ### Home
 - Home shows the current edition: the Live one, else the highest-numbered Ended one.
 - At the top, only when it has something in it: the competitions you host and your open matches where you can self-report.
 - Then the standings ([competitions.md](competitions.md#points-and-standings)). An Ended edition shows its winner.
+
+### Pages
+- Every page belongs to one edition. Organizers create, rename, reorder and delete pages; deleting is confirmed and permanent.
+- Info shows the current edition's pages.
 
 ### Archive
 - Lists every Ended edition by number. Opening one shows the same screens as the current edition (standings and winner, competitions, pages).

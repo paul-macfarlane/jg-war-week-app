@@ -5,7 +5,7 @@ Rebuild of War Week, the app for Jahnel Group's yearly War Week: live standings,
 ## Docs
 Read before any work, per the global standards:
 - `docs/requirements.md`: profile, roles, features, Deferred items. Settled.
-- `docs/features/competitions.md`: formats, scoring, self-report.
+- `docs/features/`: `competitions.md` (formats, scoring, self-report, standings), `editions.md` (lifecycle, home, archive, awards), `people.md` (sign-in, roster, person page, Organizers).
 - `docs/architecture.md`: stack, structure and decisions. Settled; follow it.
 - `docs/work/`: one file per work package in progress.
 

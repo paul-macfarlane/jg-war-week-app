@@ -40,7 +40,7 @@ It must be **easy to use for everyone: participants, hosts and organizers.** Par
 - **Participant:** a person on the edition's roster. Participants who are also users can self-report results where a host allows it.
 
 ### Navigation
-Home, Competitions, Info and Archive for everyone; Manage for Organizers (editions, teams and roster, competitions and hosts, subjective points, awards, Organizer list). Things are edited where they live: a host records on the match, an Organizer edits a page from the page. Person pages are reached by tapping a name; your own from your avatar.
+Home, Competitions, Info and Archive for everyone; Manage for Organizers (editions, teams and roster, competitions and hosts, subjective points, awards, Organizer list). Things are edited where they live: a host records on the match, an Organizer edits a page from the page. Person pages are reached by tapping a name, your own from your avatar; team views by tapping a team.
 
 ### Structured vs. pages
 Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links, no images), listed under Info in the order Organizers set (e.g. schedule above FAQ). JG branding ships with the app. Sign-up forms and similar stay as external links in pages.
@@ -62,8 +62,9 @@ Every time is shown in Eastern Time, matching the schedule pages.
 | Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition | [features/competitions.md](features/competitions.md) |
 | Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies | [features/editions.md](features/editions.md) |
 | Teams & roster | Jason importing the War Week sign-up sheet in one go | [features/people.md](features/people.md) |
+| Team view | A participant on day one seeing who's on their team and who leads it | [features/people.md](features/people.md) |
 | Hosts | Jason creating a competition and assigning its host before the week | [features/competitions.md](features/competitions.md) |
-| Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki | — |
+| Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki | [features/editions.md](features/editions.md) |
 | Edition lifecycle | Jason creating War Week XII, running it, and ending it with a winner so it moves to the archive | [features/editions.md](features/editions.md) |
 | Archive | Anyone looking back at who won War Week IX and how | [features/editions.md](features/editions.md) |
 | Person page | A participant checking their results and the points they've contributed this week; anyone looking at everything one person has won across years | [features/people.md](features/people.md) |
@@ -82,6 +83,7 @@ Several rows can share one feature doc.
 - Offline support.
 - Team drafting. Teams are drafted outside the app and arrive through the sign-up sheet.
 - Copying an edition forward. Each year is different; text worth keeping is copied from the archived page.
+- Notifications (push, email or in-app). Announcements stay in Slack; Home shows what needs you.
 
 ## Needs buy-in
 Ideas that need Jason's yes before building.
@@ -104,7 +106,8 @@ Known future needs, not built yet.
 - Chaining a qualifier into bracket seeding.
 - A participation result auto-creating an award (e.g. Black Midnight).
 - Backfilling editions before War Week XI.
-- Image uploads (team logos, photos, edition banners). Likely returns with per-edition theming.
+- Image uploads (team logos, edition banners, people uploading their own photo). Likely returns with per-edition theming.
+- Display names people set for themselves.
 
 ## Open questions
 - **Partner sign-in:** how do LTI and InfoLink participants sign in (their own Google/Microsoft accounts, or something else)?

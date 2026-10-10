@@ -62,6 +62,7 @@ A failed deploy must never leave production's schema ahead of its code, least of
 - **Person:** a roster entry, with any email or none. Owned by Organizers.
 - **Role:** Organizer and Host are stored against the person, never derived from an email domain.
 - Linking an account to a person follows [people.md](features/people.md#sign-in). Only **provider-verified** emails link. The link and the person's roles are resolved on every request, so an email change or a removed role takes effect immediately.
+- **Avatar:** the provider's profile photo URL is stored on the account at each sign-in and the image loads from the provider (Google), so image and content-security settings allow that host. It's personal data visible to every signed-in user; Sentry and logs never receive it.
 - Who may sign in is decided by one policy function. For v1 it allows verified emails in `ALLOWED_EMAIL_DOMAINS` (`jahnelgroup.com`). Nothing else in the code knows about Jahnel Group's domain: no Google `hd` restriction, no domain checks elsewhere.
 - Sessions expire after a fixed 30 days: Better Auth's expiry is set to 30 days with refresh-on-use turned off (its default is shorter and sliding). Signing in again re-runs the sign-in policy, so a suspended Google account loses access within 30 days.
 - The first Organizer on a new deployment is created by a documented one-off setup step naming their email.
@@ -125,4 +126,4 @@ Each Deferred item fits without a rewrite:
 - **Qualifier into bracket seeding:** hosts can already set round-one order by hand. Automatic chaining is a source-competition setting that builds the order from its final places.
 - **Participation result auto-creating an award:** an award gains an optional source competition, and its recipients come from that competition's completions.
 - **Backfilling editions before XI:** through the same import path as XI. Where only final results are known, a Ranking competition records them; where only team totals are known, subjective points with a reason fill the gap.
-- **Image uploads:** blob storage (to be proposed when approved), image columns on teams and editions, and an image block in pages.
+- **Image uploads:** blob storage (to be proposed when approved), image columns on teams, editions and people, and an image block in pages.
