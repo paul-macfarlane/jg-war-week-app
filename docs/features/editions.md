@@ -8,7 +8,7 @@
 ## Rules
 
 ### Lifecycle
-- An edition has a number (e.g. XII) and is either teams or free-for-all. Editions are ordered by number.
+- An edition has a number (e.g. XII), and optionally a theme name (e.g. Survivor) and the date War Week starts, and is either teams or free-for-all. Editions are ordered by number.
 - An edition is **Setup**, **Live** or **Ended**. An Organizer moves it between them.
   - **Setup:** nothing from it is shown to, or changeable by, anyone but Organizers, including hosts, person pages and Home. Jason builds teams, competitions and pages before anyone sees them.
   - **Live:** visible to everyone, and anything saved shows immediately. Usually from when teams are announced, weeks before the week itself, so hosts can set up and run qualifiers.

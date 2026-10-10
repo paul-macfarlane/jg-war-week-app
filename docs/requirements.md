@@ -24,7 +24,7 @@ It must be **easy to use for everyone: participants, hosts and organizers.** Par
 
 ## Character
 - Feels like War Week: competitive, a little irreverent, Jahnel Group through and through.
-- JG branding is the baseline look. Each edition's theme comes through in naming (what teams are called, e.g. Houses, Tribes) and in the pages Organizers write.
+- JG branding is the baseline look. Each edition's theme comes through in its theme name, in naming (what teams are called, e.g. Houses, Tribes) and in the pages Organizers write.
 - Copy is plain and direct. No marketing voice.
 
 ## Design
@@ -83,6 +83,7 @@ Several rows can share one feature doc.
 - Offline support.
 - Team drafting. Teams are drafted outside the app and arrive through the sign-up sheet.
 - Copying an edition forward. Each year is different; text worth keeping is copied from the archived page.
+- People search. Organizers and hosts find people through pickers; names elsewhere link to person pages.
 - Notifications (push, email or in-app). Announcements stay in Slack; Home shows what needs you.
 
 ## Needs buy-in
@@ -92,7 +93,7 @@ Ideas that need Jason's yes before building.
 - Per-edition color theming. Mocked in Claude Design for the pitch.
 - Accomplishments / immunity (lighter than awards; e.g. War Week X).
 - Hosts creating their own competitions and setting their points.
-- Stats and visualizations: scoring breakdowns, trends over the week, overall scores (Competiscore had this). Mocked in Claude Design for the pitch so it can get real feedback.
+- Stats and visualizations: scoring breakdowns, trends over the week, overall scores (Competiscore had this), all-time leaderboards across editions. Mocked in Claude Design for the pitch so it can get real feedback.
 - Hidden drafts: preparing pages, competitions or subjective points privately in a Live edition (e.g. secret Team Night events) and revealing them later. Standings are never hidden.
 - Negative subjective points (penalties).
 

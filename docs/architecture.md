@@ -9,7 +9,7 @@ Owned by Paul.
 - **Hosting:** Vercel, `staging` branch → staging, `main` → production. Zero ops for an app that's idle most of the year.
 - **Database:** Neon Postgres (Docker Postgres locally), Drizzle ORM, drizzle-kit migrations run from a GitHub Action. Relational data with real constraints and transactions; scales to zero between War Weeks.
 - **Auth:** Better Auth, Google OAuth only for v1. No passwords. Keeps employee data in our own database.
-- **Pages:** Tiptap editor; documents stored as JSON and rendered on the server. WYSIWYG for Jason, no raw HTML.
+- **Pages and competition rules:** Tiptap editor; documents stored as JSON and rendered on the server. WYSIWYG for Jason and hosts, no raw HTML.
 - **Testing:** Vitest (unit, and integration against real Postgres), Playwright with axe for e2e. GitHub Actions for CI. Fast checks on every PR, core journeys before `main`.
 - **Observability:** structured JSON logs to Vercel; Sentry (free plan) for error alerts, added before War Week XII. Meets the small-group floor of alerting plus debuggable logs.
 
@@ -85,7 +85,7 @@ Every page reads from the database at request time; no data caching. A write ref
 - **Manual refresh:** installed apps have no browser refresh. A visible refresh control on live pages, and optionally a custom pull-to-refresh in standalone mode, are decided in design (/design-ui). A gesture is never the only way to refresh.
 
 ### Pages: restricted rich text, links for everything else
-Organizer pages allow headings, paragraphs, bold/italic, lists and links (`https:` and `mailto:` only). Stored as JSON, validated against that schema, and rendered on the server as semantic HTML, never raw HTML. This matches what the old Google Sites wikis actually used (11 years of exports: day headings, event lines, FAQ, sign-up links). Collapsible sections (e.g. FAQ) are decided in design; if wanted, they are one more block type.
+Organizer pages and competition rules allow headings, paragraphs, bold/italic, lists and links (`https:` and `mailto:` only). Stored as JSON, validated against that schema, and rendered on the server as semantic HTML, never raw HTML. This matches what the old Google Sites wikis actually used (11 years of exports: day headings, event lines, FAQ, sign-up links). Collapsible sections (e.g. FAQ) are decided in design; if wanted, they are one more block type.
 - **Not in v1:** tables (Google Sites has no native tables and phone tables are poor), images and media (Deferred), embeds. Drive files and media are linked, not embedded: embedded Drive content fails without Google cookies in the frame (Safari, installed iOS apps) and for partner users without access. Each is a later schema addition, not a rewrite. Inline media will need blob storage, proposed when images are approved.
 - **Alternative:** Markdown textarea. Rejected: harder for Jason than the wiki.
 - **Alternative:** hosted CMS. Rejected: content outside the app is the scattered-history problem again.

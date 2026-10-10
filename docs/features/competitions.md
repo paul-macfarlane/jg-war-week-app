@@ -27,11 +27,16 @@ A host picks one of six formats. The first four are all rounds of matches, where
 Subjective points and awards are not competitions. Events that aren't competitions live on the schedule page.
 
 ### Setup
-- **Organizers** create competitions, set the points, assign hosts and delete competitions. A competition can have several hosts, chosen from the roster.
+- **Organizers** create competitions, set the points, set their order, assign hosts and delete competitions. A competition can have several hosts, chosen from the roster.
 - **Hosts** set the format, rules, entrants and self-report switch, and record every result in their competitions, including ones they took part in. Organizers can do anything a host can.
+- Rules are optional, in the same restricted rich text as pages ([requirements](../requirements.md#structured-vs-pages)).
 - Competitions can award no points (e.g. qualifiers).
 - The format is fixed once the first match is played. Points and rules can change any time.
 - **Deleting:** before deleting, the app shows the impact (matches and points removed, and from whom). Deletion is permanent.
+
+### Competitions list
+- The Competitions tab groups an edition's competitions as **In progress** (started, or anything recorded), **Not started** and **Finished** ([Finishing](#finishing)), each group in the order Organizers set. Competitions you host or take part in are marked.
+- Competitions have no day or time; when they happen is on the schedule page.
 
 ### Entrants
 - Each competition sets its entrant type: **individuals**, **squads** or **teams**. Every entrant in a competition is that type; an individual never faces a squad or a team. Any format can use any entrant type, except that free-for-all editions have no **teams** entrant type.
