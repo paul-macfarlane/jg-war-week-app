@@ -2,6 +2,9 @@
 
 **Features:** Sign in, Partner sign-in, Teams & roster, Team view, Person page, Organizer list
 
+## Screens
+Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): Participant page (sign in, team view, person page, your menu); Organizer page, People row (roster, import, person and team edits, blocked removals) and Organizers row.
+
 ## Rules
 
 ### People
@@ -24,15 +27,15 @@
 
 ### Teams and roster
 - In a team edition everyone on the roster is on a team, and nobody changes teams mid-week. Free-for-all editions have no teams.
-- A team edition can set its own words for a team (singular and plural, e.g. House / Houses) and for a team leader (e.g. Tribal Chief). Blank means Team / Teams and Leader. The app uses them everywhere it names teams or leaders, including Manage.
-- Each team has a name, a color from the app's fixed palette, and any number of leaders. A new team gets the next unused palette color. The color marks the team next to its name, never replaces it. Leaders are shown, not given extra permissions; anything they run, they run as a host.
+- A team edition can set its own words for a team (singular and plural, e.g. House / Houses) and for a team leader (singular and plural, e.g. Tribal Chief / Tribal Chiefs). Blank means Team / Teams and Leader / Leaders. The app uses them everywhere it names teams or leaders, including Manage.
+- Each team has a name, a color from the app's fixed palette that no other team in the edition uses, and any number of leaders. A new team gets the next unused palette color. The color marks the team next to its name, never replaces it. Leaders are shown, not given extra permissions; anything they run, they run as a host.
 - Teams and leaders can be edited in the app. Changing a person's team is a correction, not a transfer: Organizers can do it at any time, standings are recalculated with them on the new team, and the app shows each team's total before and after (e.g. "Red 412 → 398, Blue 390 → 404") before saving. A change that would split a squad across teams is blocked, naming the squad.
 
 ### Importing the sign-up sheet
 - Jason pastes the sheet's rows, header included. Columns are matched by header name in any order: Name, Email, Team, Leader. Other columns are ignored. Any non-empty Leader value marks a leader. In free-for-all editions, Team and Leader are ignored.
 - The app matches existing people by email, then name, and shows existing vs. new before anything is saved.
 - Import adds and updates; it never removes. People on the roster but not in the paste are listed so Jason can remove them by hand.
-- Import updates teams and leaders for people already on the roster only while the edition is in Setup. Once it's Live, import only adds new people; team changes are made by hand.
+- Import is only available while the edition is in Setup. Once it's Live, people are added and edited by hand.
 
 ### Team view
 - A team's view shows its color, leaders, members ranked by the points each has contributed (then by name), and the points it earned in each competition and from subjective points.

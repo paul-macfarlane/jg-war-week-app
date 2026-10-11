@@ -5,10 +5,13 @@
 ## Core journey
 **Organizer:** sets up an edition (teams, hosts, competitions, pages), makes it Live, runs it, ends it, and it lands in the archive.
 
+## Screens
+Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): Participant page (Home in every state, install tip and sheets, Info, Archive); Organizer page, Edition row (lifecycle, end, transitions, winner change) and Points and awards row (awards); Wider screens page.
+
 ## Rules
 
 ### Lifecycle
-- An edition has a number (e.g. XII), and optionally a theme name (e.g. Survivor) and the date War Week starts, and is either teams or free-for-all. Editions are ordered by number.
+- An edition has a number (e.g. XII), and optionally a theme name (e.g. Survivor) and the date War Week starts, and is either teams or free-for-all, changeable only in Setup. Editions are ordered by number.
 - An edition is **Setup**, **Live** or **Ended**. An Organizer moves it between them.
   - **Setup:** nothing from it is shown to, or changeable by, anyone but Organizers, including hosts, person pages and Home. Jason builds teams, competitions and pages before anyone sees them.
   - **Live:** visible to everyone, and anything saved shows immediately. Usually from when teams are announced, weeks before the week itself, so hosts can set up and run qualifiers.
@@ -36,6 +39,12 @@
 ### Pages
 - Every page belongs to one edition. Organizers create, rename, reorder and delete pages; deleting is confirmed and permanent.
 - Info shows the current edition's pages.
+
+### Install to home screen
+- The app can be added to a phone's home screen as "War Week" with the JG logo. It opens to Home.
+- On a phone where it isn't installed, the avatar menu has **Install app**. It shows the steps for that phone: one tap on Android; Share, then Add to Home Screen on iPhone. Inside another app's browser (e.g. Slack) it first says to open the page in Safari or Chrome.
+- While an edition is Live, Home shows a one-line tip pointing to Install app until it's installed or dismissed. Dismissing is remembered on that phone.
+- Nothing about installing shows once it's installed, or on a computer.
 
 ### Archive
 - Lists every Ended edition by number. Opening one shows the same screens as the current edition (standings and winner, competitions, pages).
