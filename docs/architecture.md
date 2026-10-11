@@ -50,7 +50,7 @@ Server-rendered pages for reads, Server Actions for writes. Install to home scre
 - **Alternative:** Vite SPA + Hono API (picksleagues). Rejected: API-first only pays off for a non-web client, and nothing in the requirements or Deferred list needs one. It would mean two deploy units and a contract layer for no use case.
 
 ### Vercel, moving to Jahnel Group ownership before War Week XII
-Built and pitched on Paul's account; moved to a JG-owned Vercel Pro team (with the database, OAuth client and domain) before War Week XII. Hobby is for non-commercial personal use, and Jason needs access if Paul is unavailable during the week. All configuration comes from environment variables so the move is configuration, not code.
+Built and demoed on Paul's account; moved to a JG-owned Vercel Pro team (with the database, OAuth client and domain) before War Week XII. Hobby is for non-commercial personal use, and Jason needs access if Paul is unavailable during the week. All configuration comes from environment variables so the move is configuration, not code.
 - **Alternative:** Fly.io or Render containers. Rejected: more ops for an app that's idle most of the year.
 
 ### Migrations run from a GitHub Action, not the Vercel build
@@ -110,13 +110,13 @@ Ranking, Bracket, Heats and Survival share one shape: a competition has entrants
 - **Alternative:** e2e on every PR. Rejected: slower PRs; core journeys before merge to `main` is enough.
 
 ### Sentry for alerts, structured logs for debugging
-Sentry on server and client alerts on unhandled errors. It is added before War Week XII, on JG-owned accounts, not for the pitch; the action wrapper's `reportError()` and the route error boundaries are the seams it plugs into. Each server action logs one JSON line (actor, action, outcome, duration) with a request id shared with Sentry. Sentry receives account ids only: no emails, names or request bodies. Who recorded each result and who last changed it are stored with the result (a requirement), which answers most score questions better than logs.
+Sentry on server and client alerts on unhandled errors. It is added before War Week XII, on JG-owned accounts, not for the check-in; the action wrapper's `reportError()` and the route error boundaries are the seams it plugs into. Each server action logs one JSON line (actor, action, outcome, duration) with a request id shared with Sentry. Sentry receives account ids only: no emails, names or request bodies. Who recorded each result and who last changed it are stored with the result (a requirement), which answers most score questions better than logs.
 - **Alternative:** Vercel logs only. Rejected: no alerting, below the profile floor.
 - **Alternative:** hand-rolled notifier. Rejected: misses client errors and stack traces.
 - Sentry moves to JG ownership with everything else.
 
 ### History goes in through the services
-War Week XI's results (for the pitch) and any backfilled edition are loaded by a one-off import script that calls the same services, so every rule and validation applies. Imported results are marked as imported rather than recorded by a person. A backfilled edition goes straight from Setup to Ended.
+War Week XI's results (for the check-in) and any backfilled edition are loaded by a one-off import script that calls the same services, so every rule and validation applies. Imported results are marked as imported rather than recorded by a person. A backfilled edition goes straight from Setup to Ended.
 - **Alternative:** a seed script writing tables directly. Rejected: it would bypass the rules the archive guard test depends on.
 
 ### Room for Deferred requirements

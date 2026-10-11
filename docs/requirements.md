@@ -8,8 +8,9 @@ Owned by Paul.
 - **Exceptions to the standards:** none.
 - **Context that shapes priorities:**
   - **Next edition:** War Week XII is a free-for-all, so free-for-all scoring must be fully supported, not treated as an edge case. Partner sign-in must be in place before it.
-  - **Pitch demo:** the core journeys working on War Week XI data (Paul supplies the data in the work package that builds the archive), plus Claude Design mockups for the visual Needs buy-in items. Partner sign-in isn't part of the pitch.
-  - **Timeline:** pitch to Jason targeted for end of October 2026. Timeline doesn't drive tech choices; the goal is something Paul believes in, shown early enough to get feedback.
+  - **Pitch:** design only, nothing built. Jason sees the approved screens and labelled proposal mockups of the Needs buy-in items marked below; the rest are asked verbally, along with the partner sign-in open question. Building starts after his feedback is in the docs.
+  - **Check-in:** once built, Jason sees the core journeys working on War Week XI data (Paul supplies the data in the work package that builds the archive).
+  - **Timeline:** pitch in the week of 12 or 19 October 2026; build in the following week or two; then the check-in. Timeline doesn't drive tech choices; the goal is something Paul believes in, shown early enough to get feedback.
 
 ## Purpose
 During War Week, one place where employees see what's happening, the schedule and the standings, and where organizers and hosts record results so standings stay live. After the week, it keeps the history.
@@ -28,7 +29,7 @@ It must be **easy to use for everyone: participants, hosts and organizers.** Par
 - Copy is plain and direct. No marketing voice.
 
 ## Design
-- **Design system:** [War Week design system](https://claude.ai/artifact/LqzxzyrRyqLSR2hswxjoW2) (Claude Design). Screens per feature are linked from each feature doc.
+- **Design system:** [War Week design system](https://claude.ai/artifact/LqzxzyrRyqLSR2hswxjoW2) (Claude Design). Screens per feature are linked from each feature doc. Proposals for the Needs buy-in items: [proposals canvas](https://claude.ai/artifact/4MsEVNtGypnZ179EFXkwkg).
 
 ## App-wide rules
 
@@ -39,7 +40,7 @@ It must be **easy to use for everyone: participants, hosts and organizers.** Par
 - **Participant:** a person on the edition's roster. Participants who are also users can self-report results where a host allows it.
 
 ### Navigation
-Home, Competitions, Info and Archive for everyone; Manage for Organizers (editions, teams and roster, competitions and hosts, subjective points, awards, Organizer list). Things are edited where they live: a host records on the match, an Organizer edits a page from the page. Person pages are reached from standings and team member lists, your own from your avatar menu; names mentioned in passing (a host, an award recipient, a subjective-points entry) are plain text. Team views are reached by tapping a team. Your avatar opens a small menu: your own page, theme (System, Dark or Light; System follows the phone), Install app (on phones, until installed) and Sign out.
+Home, Competitions, Info and Archive for everyone; Manage for Organizers (editions, teams and roster, competitions and hosts, subjective points, awards, Organizer list). Things are edited where they live: a host records on the match, an Organizer edits a page from the page. Person pages are reached from standings and team member lists, your own from your avatar menu; names mentioned in passing (a host, an award recipient, a subjective-points entry, an entrant list) are plain text, and a row whose job is something else (a match, a picker result) does that job. A tap does one predictable thing: standings and team lists are where people go looking for a person, and making every name a link would put a second target inside rows that already do something. Team views are reached by tapping a team. Your avatar opens a small menu: your own page, theme (System, Dark or Light; System follows the phone), Install app (on phones, until installed) and Sign out.
 
 ### Structured vs. pages
 Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links, no images), listed under Info in the order Organizers set (e.g. schedule above FAQ). JG branding ships with the app. Sign-up forms and similar stay as external links in pages.
@@ -57,6 +58,7 @@ Every time is shown in Eastern Time, matching the schedule pages.
 | Standings | A participant on Tuesday night checking which team is ahead | [features/competitions.md](features/competitions.md) | todo |
 | Competitions & results | A host recording a bracket match as it finishes | [features/competitions.md](features/competitions.md) | todo |
 | Match history | A pool player checking how the other side of the bracket is going; someone who missed Tournament Night looking up how the Smash bracket played out | [features/competitions.md](features/competitions.md) | todo |
+| Self-entry | A player entering the pool bracket from their phone, so the host doesn't have to chase who's in | [features/competitions.md](features/competitions.md) | todo |
 | Self-report | A player in a large tournament reporting their own match so the host doesn't have to chase every result | [features/competitions.md](features/competitions.md) | todo |
 | Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition | [features/competitions.md](features/competitions.md) | todo |
 | Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies | [features/editions.md](features/editions.md) | todo |
@@ -82,17 +84,18 @@ Several rows can share one feature doc.
 - Offline support.
 - Team drafting. Teams are drafted outside the app and arrive through the sign-up sheet.
 - Copying an edition forward. Each year is different; text worth keeping is copied from the archived page.
-- People search. Organizers and hosts find people through pickers; names elsewhere link to person pages.
+- People search. Organizers and hosts find people through pickers; person pages are reached as Navigation describes.
 - Notifications (push, email or in-app). Announcements stay in Slack; Home shows what needs you.
+- Accomplishments / immunity (lighter than awards, as in War Week X).
+- A "War Week Wrapped" recap. The person page already shows a person's week.
 
 ## Needs buy-in
 Ideas that need Jason's yes before building.
-- In-app sign-up and enrollment for competitions.
-- Closing ceremonies run-through (finale slideshow) and a personal "War Week Wrapped" recap for each participant. Mocked in Claude Design for the pitch.
-- Per-edition color theming. Mocked in Claude Design for the pitch.
-- Accomplishments / immunity (lighter than awards; e.g. War Week X).
+- In-app sign-up for War Week, replacing the sign-up sheet. Asked verbally: whether the sheet is a pain, and how teams get drafted without it.
+- Running closing ceremonies from the app. Asked verbally: how Jason runs them today. Free-form slides belong in Google Slides.
+- Per-edition theme: Organizers set an accent color, a display font and a background tint, and the app keeps text readable in dark and light. JG logo, body text and layout don't change. Trades some JG branding consistency for each year's flair. Mocked for the pitch.
 - Hosts creating their own competitions and setting their points.
-- Stats and visualizations: scoring breakdowns, trends over the week, overall scores (Competiscore had this), all-time leaderboards across editions. Mocked in Claude Design for the pitch so it can get real feedback.
+- Stats: the standings race over the week (below standings, live and archived; free-for-all shows the top 5 plus you), and all-time records across editions (most 1st places, most awards). Mocked for the pitch.
 - Hidden drafts: preparing pages, competitions or subjective points privately in a Live edition (e.g. secret Team Night events) and revealing them later. Standings are never hidden.
 - Negative subjective points (penalties).
 
@@ -106,7 +109,7 @@ Known future needs, not built yet.
 - Chaining a qualifier into bracket seeding.
 - A participation result auto-creating an award (e.g. Black Midnight).
 - Backfilling editions before War Week XI.
-- Image uploads (team logos, edition banners, people uploading their own photo). Likely returns with per-edition theming.
+- Image uploads (team logos, edition banners, people uploading their own photo).
 - Display names people set for themselves.
 
 ## Open questions
