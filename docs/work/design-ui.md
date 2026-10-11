@@ -23,7 +23,16 @@ Requirement changes Paul approved are already in the docs on this branch. Design
 - Every component maps to a shadcn part (table in the design system README).
 
 ## Remaining before approval
-- Mock: team edit (name, colour, leaders), plus the surfaces listed in the final sweep.
-- Fresh-agent review of the whole canvas against the docs and design system.
-- Open requirement gap: **Install to home screen** has a feature row but no rules in `editions.md`.
-- Open question already in requirements: partner sign-in (not mocked).
+Canvas has 80 boards (all features have at least their main screens). Still to mock, each a variant of an existing pattern:
+- People: blocked roster removal (lists where they appear); entrant with results can't be removed; team change blocked by a squad; add a team (next unused colour); Organizer email-change warning; import edge cases (missing column, flagged rows, people not in the paste).
+- Edition: Setup → Ended (backfill); Ended → Live confirmation (enabled); co-winners; an Organizer's Home while an edition is only in Setup.
+- Competitions: move entrants between heats / add a heat / late entrant in round 1; Bracket 3rd-place match; "Points not set yet" warning; tie at a Best score cutoff; Finish for Participation and Best score; participant removing their own mark or attempt; self-report locked after a later match has a result; teams as entrants; Survival scored by last survivor.
+- Confirmations: delete subjective points; delete an award; last Organizer can't be removed.
+- Wider screens: a sheet as a centred dialog; avatar menu as a dropdown; header nav on screens other than Home.
+Then: fresh-agent review of the whole canvas; Paul approves; add links to the docs; open the PR.
+
+Open items for Paul:
+- Install to home screen: feature row but no rules in `editions.md`; InstallHint board is a proposal (one-time dismissible tip on Home).
+- Partner sign-in: open question in requirements; not mocked.
+
+Working files for the mocks live only in the Claude Design artifacts above (the source of truth); a new session reads them with the Artifact tool before editing.
