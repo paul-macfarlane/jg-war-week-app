@@ -27,11 +27,12 @@ A host picks one of six formats. The first four are all rounds of matches, where
 Subjective points and awards are not competitions. Events that aren't competitions live on the schedule page.
 
 ### Setup
-- **Organizers** create competitions, set the points, set their order, assign hosts and delete competitions. A competition can have several hosts, chosen from the roster.
-- **Hosts** set the format, rules, entrants and self-report switch, and record every result in their competitions, including ones they took part in. Organizers can do anything a host can.
+- **Organizers** create competitions, set their order, assign hosts and delete competitions. They set every point value and scoring choice: points per place, Participation tiers and their points, points per finisher, and how teams are scored. A competition can have several hosts, chosen from the roster.
+- **Hosts** set the format, rules, entrants, how a match is decided and the self-report switch, and record every result in their competitions, including ones they took part in. Organizers can do anything a host can, so they can set a competition up as far as they like before handing it over.
+- A competition whose format needs points or a scoring choice that isn't set yet says so to its hosts and Organizers.
 - Rules are optional, in the same restricted rich text as pages ([requirements](../requirements.md#structured-vs-pages)).
 - Competitions can award no points (e.g. qualifiers).
-- The format is fixed once the first match is played. Points and rules can change any time.
+- Once the first result is recorded, the format, entrant type, how a match is decided and the 3rd place match are fixed. Points, rules, self-report and hosts can change any time.
 - **Deleting:** before deleting, the app shows the impact (matches and points removed, and from whom). Deletion is permanent.
 
 ### Competitions list
@@ -44,7 +45,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - In team editions, a squad's members must all be on the same team.
 - **Ranking, Bracket, Heats, Survival** have an entrant list, built from the roster. "Add everyone" adds anyone not already in; pressing it again after roster changes adds only the missing people. An entrant with no results can be removed; one with results can't (the app shows where they played).
 - **Participation and Best score** have no entrant list. Anyone on the roster (or any squad, for squad competitions) can be marked done or log a score.
-- No late-entry feature. Hosts can edit any match's entrants by hand, which covers late arrivals.
+- Late entrants can be added only during the first round, and only where no played match has to be redone (e.g. a new heat, or a first-round match not yet played). Hosts can edit an unplayed match's entrants by hand.
 
 ### Building matches
 - The app builds the first round automatically when the host starts the competition. Order is random by default; the host can reorder before starting.
@@ -91,11 +92,12 @@ Subjective points and awards are not competitions. Events that aren't competitio
 In Heats, Survival or a Best score cutoff, the app flags the tie and the host picks who advances. No automatic tie-break rules.
 
 ### Corrections
-- Hosts can change any result in their competitions, and Organizers in any competition (after the edition ends, see [editions.md](editions.md#lifecycle)). Every result shows who recorded it and who last changed it.
+- Hosts can change any result in their competitions, and Organizers in any competition (after the edition ends, see [editions.md](editions.md#lifecycle)). Every result stores who recorded it and who last changed it; hosts and Organizers see both when they open the match.
 - If a correction changes who advanced, the app first names the later matches affected. On confirm, the right entrant replaces the wrong one in the next round, and any later result that included the wrong entrant is cleared to be recorded again.
 - A result saved from an out-of-date view is refused ("Updated by Dom just now") and shows the current result; it never silently overwrites someone else's change. Submitting the same result twice changes nothing.
 
 ## Edge cases
+- **Switching format before play:** switching to a format with no entrant list (Best score, Participation) clears the entrants, after a confirmation.
 - **Running tallies** (e.g. 2023's stairs, up to 5 a day, ranked by total): the host logs each person's running total as their Best score.
 - **Consolation tables** (e.g. 2023's Catan "Second Table Champion"): run as a separate Ranking competition.
 

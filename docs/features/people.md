@@ -35,11 +35,11 @@
 - Import updates teams and leaders for people already on the roster only while the edition is in Setup. Once it's Live, import only adds new people; team changes are made by hand.
 
 ### Team view
-- A team's view shows its color, leaders, members, and the points it earned in each competition and from subjective points.
+- A team's view shows its color, leaders, members ranked by the points each has contributed (then by name), and the points it earned in each competition and from subjective points.
 
 ### Person page
 - Shows the person's results and the points they've contributed in the current edition (what counts is in [competitions.md](competitions.md#points-and-standings)), and across years: editions, team each year, 1st places and awards.
-- No individual leaderboard in team editions.
+- No edition-wide individual leaderboard in team editions; a team's member list is the only place its members are ranked.
 
 ## Edge cases
 - **Name matches, email differs:** the import asks whether it's the same person. Yes updates the email; no creates a new person. It's never changed silently.

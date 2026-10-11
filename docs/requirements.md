@@ -39,7 +39,7 @@ It must be **easy to use for everyone: participants, hosts and organizers.** Par
 - **Participant:** a person on the edition's roster. Participants who are also users can self-report results where a host allows it.
 
 ### Navigation
-Home, Competitions, Info and Archive for everyone; Manage for Organizers (editions, teams and roster, competitions and hosts, subjective points, awards, Organizer list). Things are edited where they live: a host records on the match, an Organizer edits a page from the page. Person pages are reached by tapping a name, your own from your avatar; team views by tapping a team.
+Home, Competitions, Info and Archive for everyone; Manage for Organizers (editions, teams and roster, competitions and hosts, subjective points, awards, Organizer list). Things are edited where they live: a host records on the match, an Organizer edits a page from the page. Person pages are reached from standings and team member lists, your own from your avatar menu; names mentioned in passing (a host, an award recipient, a subjective-points entry) are plain text. Team views are reached by tapping a team. Your avatar opens a small menu: your own page, theme (System, Dark or Light; System follows the phone) and Sign out.
 
 ### Structured vs. pages
 Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links, no images), listed under Info in the order Organizers set (e.g. schedule above FAQ). JG branding ships with the app. Sign-up forms and similar stay as external links in pages.
