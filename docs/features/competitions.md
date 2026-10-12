@@ -1,6 +1,6 @@
 # Competitions
 
-**Features:** Competitions & results, Hosts, Self-report, Match history, Standings, Subjective points
+**Features:** Competitions & results, Hosts, Self-entry, Self-report, Match history, Standings, Subjective points
 
 Priorities, in order: easy for participants, hosts and organizers, then flexible. Simple choices in front, one flexible model behind.
 
@@ -11,7 +11,7 @@ See [Examples](#examples) for what each named competition was.
 2. **Host:** records a result; points land in standings.
 
 ## Screens
-Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): By format page (set up, competition page and record, per format, plus variants); Host page (host Home, corrections, stale saves, ties, Finish); Organizer page, Competitions and Points and awards rows; Participant page (Competitions list, self-report).
+Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): By format page (set up, competition page and record, per format, plus variants and self-entry); Host page (host Home, corrections, stale saves, ties, Finish); Organizer page, Competitions and Points and awards rows; Participant page (Competitions list, self-report).
 
 ## Rules
 
@@ -31,11 +31,11 @@ Subjective points and awards are not competitions. Events that aren't competitio
 
 ### Setup
 - **Organizers** create competitions, set their order, assign hosts and delete competitions. They set every point value and scoring choice: points per place, Participation tiers and their points, points per finisher, and how teams are scored. A competition can have several hosts, chosen from the roster.
-- **Hosts** set the format, description, entrants, how a match is decided and the self-report switch, and record every result in their competitions, including ones they took part in. Organizers can do anything a host can, so they can set a competition up as far as they like before handing it over.
+- **Hosts** set the format, description, entrants, how a match is decided, the self-entry switch and the self-report switch, and record every result in their competitions, including ones they took part in. Organizers can do anything a host can, so they can set a competition up as far as they like before handing it over.
 - A competition whose format needs points or a scoring choice that isn't set yet says so to its hosts and Organizers.
 - A **description** is optional (what it is, its rules), in the same restricted rich text as pages ([requirements](../requirements.md#structured-vs-pages)).
 - An Organizer can turn off **Awards points** (e.g. qualifiers); the competition then shows "No points" and is never flagged as not set.
-- Once the first result is recorded, the format, entrant type, how a match is decided and the 3rd place match are fixed. Points, description, self-report and hosts can change any time.
+- Once the first result is recorded, the format, entrant type, how a match is decided and the 3rd place match are fixed. Points, description, self-entry, self-report and hosts can change any time.
 - **Deleting:** before deleting, the app shows the impact (matches and points removed, and from whom). Deletion is permanent.
 
 ### Competitions list
@@ -45,8 +45,12 @@ Subjective points and awards are not competitions. Events that aren't competitio
 ### Entrants
 - Each competition sets its entrant type: **individuals**, **squads** or **teams**. Every entrant in a competition is that type; an individual never faces a squad or a team. Any format can use any entrant type, except that free-for-all editions have no **teams** entrant type.
 - A squad can be any size. Hosts create squads inline by picking members.
+- In Best score, a person can be on more than one squad. Squads are ranked by their best score, and a squad that shares anyone with a higher-ranked squad drops out of the ranking. In every other format, nobody is on two squads, or on a squad and entered alone, in the same competition.
 - In team editions, a squad's members must all be on the same team.
 - **Ranking, Bracket, Heats, Survival** have an entrant list, built from the roster. "Add everyone" adds anyone not already in; pressing it again after roster changes adds only the missing people. An entrant with no results can be removed; one with results can't (the app shows where they played).
+- **Self-entry:** Ranking, Bracket, Heats and Survival competitions with individual or squad entrants have a "Let people enter themselves" switch, off by default. When it's on, participants who have signed in can enter from the competition page while the edition is Live and the competition hasn't started. Team-entrant competitions never have it.
+- In a squad competition, you enter by picking your squadmates, under the same rules as hosts (same team in team editions). Squadmates don't have to accept. Picking someone who's already entered is blocked, and the app says where they're in. Anyone in the squad can withdraw it.
+- You can leave until the competition starts. Once it starts, entries close and only hosts add late entrants (below).
 - **Participation and Best score** have no entrant list. Anyone on the roster (or any squad, for squad competitions) can be marked done or log a score.
 - Late entrants can be added only during the first round, and only where no played match has to be redone (e.g. a new heat, or a first-round match not yet played). Hosts can edit an unplayed match's entrants by hand.
 
