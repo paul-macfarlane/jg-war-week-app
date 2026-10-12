@@ -60,7 +60,7 @@ A failed deploy must never leave production's schema ahead of its code, least of
 ### Accounts, people and sign-in policy are separate
 - **Account:** a Better Auth user with one or more provider logins. Adding a provider (e.g. Microsoft) is configuration.
 - **Person:** a roster entry, with any email or none. Owned by Organizers.
-- **Role:** Organizer and Host are stored against the person, never derived from an email domain.
+- **Role:** Organizer is stored against the person; Host is stored per competition, naming the person. Neither is derived from an email domain.
 - Linking an account to a person follows [people.md](features/people.md#sign-in). Only **provider-verified** emails link. The link and the person's roles are resolved on every request, so an email change or a removed role takes effect immediately.
 - **Avatar:** the provider's profile photo URL is stored on the account at each sign-in and the image loads from the provider (Google), so image and content-security settings allow that host. It's personal data visible to every signed-in user; Sentry and logs never receive it.
 - Who may sign in is decided by one policy function. For v1 it allows verified emails in `ALLOWED_EMAIL_DOMAINS` (`jahnelgroup.com`). Nothing else in the code knows about Jahnel Group's domain: no Google `hd` restriction, no domain checks elsewhere.
