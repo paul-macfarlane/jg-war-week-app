@@ -17,8 +17,9 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 
 ### Sign in
 - Sign-in links the account to the person whose email matches the account's verified email. The link follows the person's current email, so an email change takes effect immediately and the old account loses that person.
-- If someone's email changes, an Organizer edits it. Changing the email of an Organizer or Host shows its own warning naming the access that moves (e.g. "This moves Paul's Organizer access to p.mcfarlane@…").
-- Someone who signs in but matches no person can read the app as a User. During a Live edition, Home tells them: "You're not on the War Week XII roster. If you should be, ask an Organizer." People can't claim a person themselves.
+- If someone's email changes, an Organizer edits it. Changing the email of an Organizer or Host, whether by editing, linking a sign-in or importing, shows its own warning naming the access that moves (e.g. "This moves Paul's Organizer access to p.mcfarlane@…").
+- Someone who signs in but matches no person can read the app as a User, and has no "Your page". During a Live edition, Home tells anyone not on its roster (Organizers and hosts excepted): "You're not on the War Week XII roster. If you should be, ask an Organizer." People can't claim a person themselves.
+- An account the sign-in policy refuses is told so on the sign-in screen, with who to ask.
 - Manage shows Organizers sign-ins that matched no person and roster people (especially hosts) who have never signed in, so emails can be fixed before the week.
 
 ### Organizers
@@ -28,24 +29,26 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 ### Teams and roster
 - In a team edition everyone on the roster is on a team, and nobody changes teams mid-week. Free-for-all editions have no teams.
 - A team edition can set its own words for a team (singular and plural, e.g. House / Houses) and for a team leader (singular and plural, e.g. Tribal Chief / Tribal Chiefs). Blank means Team / Teams and Leader / Leaders. The app uses them everywhere it names teams or leaders, including Manage.
-- Each team has a name, a color from the app's fixed palette that no other team in the edition uses, and any number of leaders. A new team gets the next unused palette color. The color marks the team next to its name, never replaces it. Leaders are shown, not given extra permissions; anything they run, they run as a host.
+- Each team has a name, a color from the app's fixed palette that no other team in the edition uses, and any number of leaders, who are members of the team and are set from the team. An edition has at most as many teams as the palette has colors (8). A new team gets the next unused palette color. A team with no members can be deleted. The color marks the team next to its name, never replaces it. Leaders are shown, not given extra permissions; anything they run, they run as a host.
 - Teams and leaders can be edited in the app. Changing a person's team is a correction, not a transfer: Organizers can do it at any time, standings are recalculated with them on the new team, and the app shows each team's total before and after (e.g. "Red 58 → 55, Blue 54 → 57") before saving. A change that would split a squad across teams is blocked, naming the squad.
 
 ### Importing the sign-up sheet
-- Jason pastes the sheet's rows, header included. Columns are matched by header name in any order: Name, Email, Team, Leader. Other columns are ignored. Any non-empty Leader value marks a leader. In free-for-all editions, Team and Leader are ignored.
-- The app matches existing people by email, then name, and shows existing vs. new before anything is saved.
+- Jason pastes the sheet's rows, header included. Columns are matched by header name in any order, ignoring case and extra words (e.g. "Email Address"): Name, Email, Team, Leader. Other columns are ignored. If no Email column is found, the preview says so. Yes, Y, True, X or 1 in Leader marks a leader; No, False, 0 or blank doesn't. In free-for-all editions, Team and Leader are ignored.
+- The app matches existing people by email, then name, and shows existing vs. new before anything is saved. Names match ignoring case, spacing and apostrophe style. Teams named in the sheet that don't exist yet are listed as new teams in the preview.
 - Import adds and updates; it never removes. People on the roster but not in the paste are listed so Jason can remove them by hand.
-- Import is only available while the edition is in Setup. Once it's Live, people are added and edited by hand.
+- Import is only available while the edition is in Setup. Once it's Live, people are added and edited by hand. Adding a person by hand searches everyone in the app first; "Add someone new" only if they're not there.
 
 ### Team view
 - A team's view shows its color, leaders, members ranked by the points each has contributed (then by name), and the points it earned in each competition and from subjective points.
 
 ### Person page
-- Shows the person's results and the points they've contributed in the current edition (what counts is in [competitions.md](competitions.md#points-and-standings)), and across years: editions, team each year, 1st places and awards.
+- Shows the person's results and the points they've contributed in the current edition (what counts is in [competitions.md](competitions.md#points-and-standings)), and across years: editions, team each year, 1st place finishes they can be tied to (as for a person's points) and awards.
 - No edition-wide individual leaderboard in team editions; a team's member list is the only place its members are ranked.
 
 ## Edge cases
 - **Name matches, email differs:** the import asks whether it's the same person. Yes updates the email; no creates a new person. It's never changed silently.
+- **Name matches a person with no email** (e.g. someone loaded from the archive): matched; the sheet's email is added, shown in the preview.
+- **Ambiguous rows:** a name matching more than one person, or two rows sharing an email, is flagged in the preview and not imported until fixed.
 - **Email matches, name differs** (e.g. a married name): the sheet's name replaces the app's, shown in the preview.
 - **Missing data:** every row needs a name, and in a team edition a team. Email is optional (e.g. Bucky the Horse). If a required column is missing the import says which and saves nothing; rows missing a required value are flagged in the preview.
 

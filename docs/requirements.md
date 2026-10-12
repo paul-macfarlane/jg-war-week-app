@@ -4,11 +4,11 @@ Owned by Paul.
 
 ## Profile
 - **Profile:** product, small group. First goal is a coherent version that gets Jason's buy-in.
-- **Expected scale:** ~100–125 people per edition (Jahnel Group employees plus partner-company participants from LTI and InfoLink). Intense for one week a year, near zero otherwise: it must be rock solid during War Week; the rest of the year only the archive needs to work.
+- **Expected scale:** ~100–125 people per edition (Jahnel Group employees plus partner-company participants from LTI and InfoLink, about 20 in War Week XI). Both partner companies are under Jahnel Group ownership: their people can do everything JG employees can, and anyone at them may sign in. Intense for one week a year, near zero otherwise: it must be rock solid during War Week; the rest of the year only the archive needs to work.
 - **Exceptions to the standards:** none.
 - **Context that shapes priorities:**
   - **Next edition:** War Week XII is a free-for-all, so free-for-all scoring must be fully supported, not treated as an edge case. Partner sign-in must be in place before it.
-  - **Pitch:** design only, nothing built. Jason sees the approved screens and labelled proposal mockups of the Needs buy-in items marked below; the rest are asked verbally, along with the partner sign-in open question. Building starts after his feedback is in the docs.
+  - **Pitch:** design only, nothing built. Jason sees the approved screens, then the proposals canvas: mockups of the Needs buy-in items marked "Mocked for the pitch", and the question after "Ask:" for each of them. Building starts after his feedback is in the docs.
   - **Check-in:** once built, Jason sees the core journeys working on War Week XI data (Paul supplies the data in the work package that builds the archive).
   - **Timeline:** pitch in the week of 12 or 19 October 2026; build in the following week or two; then the check-in. Timeline doesn't drive tech choices; the goal is something Paul believes in, shown early enough to get feedback.
 
@@ -91,13 +91,13 @@ Several rows can share one feature doc.
 
 ## Needs buy-in
 Ideas that need Jason's yes before building.
-- In-app sign-up for War Week, replacing the sign-up sheet. Asked verbally: whether the sheet is a pain, and how teams get drafted without it.
-- Running closing ceremonies from the app. Asked verbally: how Jason runs them today. Free-form slides belong in Google Slides.
-- Per-edition theme: Organizers set an accent color, a display font and a background tint, and the app keeps text readable in dark and light. JG logo, body text and layout don't change. Trades some JG branding consistency for each year's flair. Mocked for the pitch.
-- Hosts creating their own competitions and setting their points.
-- Stats: the standings race over the week (below standings, live and archived; free-for-all shows the top 5 plus you), and all-time records across editions (most 1st places, most awards). Mocked for the pitch.
-- Hidden drafts: preparing pages, competitions or subjective points privately in a Live edition (e.g. secret Team Night events) and revealing them later. Standings are never hidden.
-- Negative subjective points (penalties).
+- In-app sign-up for War Week, replacing the sign-up sheet. Ask: is the sign-up sheet a pain, and how would you draft teams without it?
+- Running closing ceremonies from the app. Free-form slides belong in Google Slides. Ask: how do you run closing ceremonies today, and is anything painful?
+- Per-edition theme: Organizers pick a color from a short list of presets, each checked for contrast in dark and light, an optional matching background tint, and a headline font. JG logo, body text and layout don't change. Trades some JG branding consistency for each year's flair. Mocked for the pitch. Ask: do you want each War Week to look different in the app?
+- Hosts creating their own competitions and setting their points. Trades Organizers' single view of point balance for less setup work for Jason. Ask: should hosts add their own competitions and set points, or only Organizers?
+- Stats: the standings race over the week (below standings, live and archived; free-for-all shows the top 5 plus you), and all-time records across editions (most 1st place finishes, most awards). A day's points are those recorded that day (ET). Mocked for the pitch. Ask: mid-week, do people ask who's catching up, and would they look at all-time records?
+- Hidden drafts: preparing pages, competitions or subjective points privately in a Live edition (e.g. secret Team Night events) and revealing them later. Standings are never hidden. Ask: has anything had to stay secret until it was revealed?
+- Negative subjective points (penalties). Ask: has a team or person ever lost points?
 
 ## Suggestions
 Ideas from others at JG, captured with who suggested them. None yet.
@@ -113,4 +113,4 @@ Known future needs, not built yet.
 - Display names people set for themselves.
 
 ## Open questions
-- **Partner sign-in:** how do LTI and InfoLink participants sign in (their own Google/Microsoft accounts, or something else)?
+- **Partner sign-in:** which accounts (Google, Microsoft or other) and email domains do LTI and InfoLink participants sign in with? Paul finds out from each company; it isn't a question for Jason.

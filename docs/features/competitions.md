@@ -7,8 +7,8 @@ Priorities, in order: easy for participants, hosts and organizers, then flexible
 See [Examples](#examples) for what each named competition was.
 
 ## Core journey
-1. **Participant:** checks standings, results and match history on their phone; self-reports a match where allowed.
-2. **Host:** records a result; points land in standings.
+1. **Participant:** enters a competition where allowed; checks standings, results and match history on their phone; self-reports a match where allowed.
+2. **Host:** sets up and starts a competition; records a result; points land in standings.
 
 ## Screens
 Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): By format page (set up, competition page and record, per format, plus variants and self-entry); Host page (host Home, corrections, stale saves, ties, Finish); Organizer page, Competitions and Points and awards rows; Participant page (Competitions list, self-report).
@@ -30,12 +30,12 @@ A host picks one of six formats. The first four are all rounds of matches, where
 Subjective points and awards are not competitions. Events that aren't competitions live on the schedule page.
 
 ### Setup
-- **Organizers** create competitions, set their order, assign hosts and delete competitions. They set every point value and scoring choice: points per place, Participation tiers and their points, points per finisher, and how teams are scored. A competition can have several hosts, chosen from the roster.
-- **Hosts** set the format, description, entrants, how a match is decided, the self-entry switch and the self-report switch, and record every result in their competitions, including ones they took part in. Organizers can do anything a host can, so they can set a competition up as far as they like before handing it over.
+- **Organizers** create competitions, set their order, assign hosts and delete competitions. They set every point value and scoring choice: points per place, Participation tiers and their points, points per finisher, and how teams are scored. A competition can have several hosts, chosen from anyone in the app, as Organizers are; a host needn't be on the roster.
+- **Hosts** set the format, description, entrants, how a match is decided, the Best score cutoff, the self-entry switch and the self-report switch, and record every result in their competitions, including ones they took part in. Organizers can do anything a host can, so they can set a competition up as far as they like before handing it over.
 - A competition whose format needs points or a scoring choice that isn't set yet says so to its hosts and Organizers.
 - A **description** is optional (what it is, its rules), in the same restricted rich text as pages ([requirements](../requirements.md#structured-vs-pages)).
 - An Organizer can turn off **Awards points** (e.g. qualifiers); the competition then shows "No points" and is never flagged as not set.
-- Once the first result is recorded, the format, entrant type, how a match is decided and the 3rd place match are fixed. Points, description, self-entry, self-report and hosts can change any time.
+- Once the first result is recorded, the format, entrant type, how a match is decided and the 3rd place match are fixed. Points, description, the Best score cutoff, self-entry, self-report and hosts can change any time.
 - **Deleting:** before deleting, the app shows the impact (matches and points removed, and from whom). Deletion is permanent.
 
 ### Competitions list
@@ -43,9 +43,9 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - Competitions have no day or time; when they happen is on the schedule page.
 
 ### Entrants
-- Each competition sets its entrant type: **individuals**, **squads** or **teams**. Every entrant in a competition is that type; an individual never faces a squad or a team. Any format can use any entrant type, except that free-for-all editions have no **teams** entrant type.
+- Each competition sets its entrant type: **individuals**, **squads** or **teams**. Every entrant in a competition is that type; an individual never faces a squad or a team. Any format can use any entrant type, except that Participation and free-for-all editions have no **teams** entrant type.
 - A squad can be any size. Hosts create squads inline by picking members.
-- In Best score, a person can be on more than one squad. Squads are ranked by their best score, and a squad that shares anyone with a higher-ranked squad drops out of the ranking. In every other format, nobody is on two squads, or on a squad and entered alone, in the same competition.
+- In Best score, a person can be on more than one squad. Squads are ranked in score order, and a squad is skipped (no place, no points, not counted toward a cutoff) if anyone in it is already on a ranked squad. Squads tied on score that share someone are a tie the host resolves, as at a cutoff ([Ties that block advancement](#ties-that-block-advancement)). Someone on more than one squad picks which squad they're logging for. In every other format, nobody is on two squads, or on a squad and entered alone, in the same competition.
 - In team editions, a squad's members must all be on the same team.
 - **Ranking, Bracket, Heats, Survival** have an entrant list, built from the roster. "Add everyone" adds anyone not already in; pressing it again after roster changes adds only the missing people. An entrant with no results can be removed; one with results can't (the app shows where they played).
 - **Self-entry:** Ranking, Bracket, Heats and Survival competitions with individual or squad entrants have a "Let people enter themselves" switch, off by default. When it's on, participants who have signed in can enter from the competition page while the edition is Live and the competition hasn't started. Team-entrant competitions never have it.
@@ -59,6 +59,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Bracket:** byes go to the top of the order when the count isn't a power of two. Optional "Play a 3rd place match" (off by default).
 - **Heats:** the host picks a heat size and how many advance; the app splits entrants as evenly as possible (uneven heats allowed). The host can move entrants between heats before play and add a heat to the current round (e.g. for late arrivals) until starting the next round. Starting the next round closes the current one, advances the top N of each heat, and can use a new heat size (e.g. heats of 4, then a final heat).
 - **Bracket and Survival:** later rounds fill in automatically as results come in.
+- **Participation and Best score** have no start: they're in progress from the first mark or attempt.
 
 ### Recording results
 - Each competition sets how a match is decided: **higher score wins**, **lower score wins**, or **finishing order**.
@@ -70,9 +71,10 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Survival in team editions:** the competition scores either **individual places** (each person's place points go to their team) or **teams ranked by last survivor** (teams are ranked by when their last member is eliminated, and the points list applies to those team ranks).
 
 ### Self-report
-- The host turns it on per competition; off by default. It isn't offered for **Survival** or for competitions with the **teams** entrant type.
-- In match formats, anyone in the match (including any squad member) can report its result or change it; the last change wins. Once a later match built on it has a result, only hosts and Organizers can change it.
-- In Participation, participants mark themselves done; in Best score, they log their own attempts, and any squad member can log the squad's. While the competition is unfinished, participants can remove their own marks and attempts, but not ones a host made. Participants only report for themselves or their squad.
+- The host turns it on per competition; off by default. It isn't offered for **Ranking**, **Survival** or competitions with the **teams** entrant type.
+- In Bracket and Heats, anyone in the match (including any squad member) can report its result or change it; the last change wins. Once the next round includes anyone from it, or a later match built on it has a result, only hosts and Organizers can change it.
+- In Participation, participants mark themselves done; in Best score, they log their own attempts, and any squad member can log the squad's. Participants can remove their own marks and attempts, but not ones a host made. Participants only report for themselves or their squad.
+- Once a competition is finished, only hosts and Organizers change its results, marks and attempts.
 - Reports count immediately. No opponent confirmation, disputes or approval queue. The honor system applies; hosts correct mistakes.
 
 ### Subjective points
@@ -92,15 +94,15 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Standings** show ranked totals (teams, or individuals in free-for-all) with your team or your own row highlighted, and every competition's status, point value and where its points went, with subjective points and their reasons. Seeing every point value in one place lets Organizers keep points balanced.
 
 ### Finishing
-- Bracket, Heats and Survival finish when the final match is recorded; Ranking when the order is entered.
+- Bracket and Heats finish when the final match is recorded; Survival when one entrant is left (or, scored by last survivor, one team); Ranking when the order is entered.
 - Participation and Best score are open-ended: a host or Organizer taps **Finish**, or the edition ends ([editions.md](editions.md#lifecycle)).
 - No close/reopen ceremony. Editing a finished competition updates points and standings recalculate.
 
 ### Ties that block advancement
-In Heats or a Best score cutoff, the app flags the tie and the host picks who advances when people advance: on starting the next round (Heats) or on Finish (Best score). No automatic tie-break rules. A tie at a Best score cutoff when the edition ends stays a shared place.
+In Heats or a Best score cutoff, the app flags the tie and the host picks who advances when people advance: on starting the next round (Heats) or on Finish (Best score). No automatic tie-break rules. At a Best score cutoff, the pick only marks who goes through; tied entrants keep their shared place and points, including when the edition ends before a pick.
 
 ### Corrections
-- Hosts can change any result in their competitions, and Organizers in any competition (after the edition ends, see [editions.md](editions.md#lifecycle)). Every result stores who recorded it and who last changed it; hosts and Organizers see both when they open the match.
+- Hosts can change any result in their competitions while the edition is Live; Organizers can change any result in any competition, including after the edition ends ([editions.md](editions.md#lifecycle)). Every result, mark and attempt stores who recorded it and when, and who last changed it and when; a result's time is when it was recorded. Hosts and Organizers see both when they open the match.
 - If a correction changes who advanced, the app first names the later matches affected. On confirm, the right entrant replaces the wrong one in the next round, and any later result that included the wrong entrant is cleared to be recorded again.
 - A result saved from an out-of-date view is refused ("Updated by Dom just now") and shows the current result; it never silently overwrites someone else's change. Submitting the same result twice changes nothing.
 
