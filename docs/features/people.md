@@ -13,7 +13,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 - A person's name is the one Organizers set, by import or by hand, and it's shown everywhere. People can't change their own.
 - A person's avatar is the profile photo from their last sign-in, cleared when their email changes. Without one, it's their initials on their team's color in the edition being viewed, or neutral where there's no team (free-for-all, outside an edition).
 - A person persists across years: each edition's roster reuses existing people, so history follows them.
-- A person with anything recorded or assigned in an edition (results, attempts, completions, squads, subjective-point credit, a host role) can't be removed from its roster; the app shows where they appear. Someone who withdraws stays on the roster, and hosts handle their remaining matches.
+- A person with anything recorded or assigned in an edition (results, attempts, completions, squads, subjective-point credit, an award, a host role) can't be removed from its roster; the app shows where they appear. Someone who withdraws stays on the roster, and hosts handle their remaining matches.
 
 ### Sign in
 - Sign-in links the account to the person whose email matches the account's verified email. The link follows the person's current email, so an email change takes effect immediately and the old account loses that person.

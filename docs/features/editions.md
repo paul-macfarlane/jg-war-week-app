@@ -16,7 +16,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
   - **Setup:** nothing from it is shown to, or changeable by, anyone but Organizers, including hosts, person pages and Home. Jason builds teams, competitions and pages before anyone sees them.
   - **Live:** visible to everyone, and anything saved shows immediately. Usually from when teams are announced, weeks before the week itself, so hosts can set up and run qualifiers.
   - **Ended:** in the archive. Organizers can still edit it (e.g. entering awards); hosts and participants are read-only.
-- One edition is Live at a time. A Setup edition can exist alongside Live and Ended ones.
+- One edition is Live at a time. A Setup edition can exist alongside Live and Ended ones. A Setup edition can be deleted (e.g. created by mistake); the app shows what goes with it, and deleting is confirmed and permanent.
 - **Live → Setup** is allowed while nothing is recorded in it: no results, marks, attempts, entries or subjective points (e.g. made Live too early). Competitions can still be created and edited while Live.
 - **Setup → Ended** happens only when a past edition is backfilled by import ([architecture.md](../architecture.md)), so it's never public half-built. The app doesn't offer it.
 - **Ending** a Live edition finishes any open Participation and Best score competitions; their current points become final. Unfinished Ranking, Bracket, Heats and Survival competitions stay unfinished (their decided places still count; see [competitions.md](competitions.md#points-and-standings)) until an Organizer records the rest. Before confirming, the Organizer sees what's still open, what ending will do, and who wins.
