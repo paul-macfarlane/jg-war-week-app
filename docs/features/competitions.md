@@ -39,7 +39,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Deleting:** before deleting, the app shows the impact (matches and points removed, and from whom). Deletion is permanent.
 
 ### Competitions list
-- The Competitions tab groups an edition's competitions as **In progress** (started, or anything recorded), **Not started** and **Finished** ([Finishing](#finishing)), each group in the order Organizers set. Competitions you host or take part in are marked.
+- The Competitions tab groups an edition's competitions as **In progress** (started, or anything recorded), **Not started** and **Finished** ([Finishing](#finishing)), each group in the order Organizers set. Each competition shows its point values and where its points went; subjective points and their reasons follow the competitions. This is the edition's only points breakdown: seeing every point value in one place lets Organizers keep points balanced. Competitions you host or take part in are marked.
 - Competitions have no day or time; when they happen is on the schedule page.
 
 ### Entrants
@@ -91,7 +91,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Team editions:** points go to the team. An individual's points count for their team.
 - **Free-for-all editions:** points go to individuals. Each member of a squad gets the squad's full points.
 - **A person's points** (person page, team editions) are the points they can be concretely tied to: their own placings, their squad's points (full to each member), Survival team points for the team's last survivor(s), Participation completions including team rankings by headcount or percentage (credited to each person who completed), and subjective points naming them. Team-entrant results and subjective points naming no one show on members' pages but don't count toward their points.
-- **Standings** show ranked totals (teams, or individuals in free-for-all) with your team or your own row highlighted, and every competition's status, point value and where its points went, with subjective points and their reasons. Seeing every point value in one place lets Organizers keep points balanced.
+- **Standings** show ranked totals (teams, or individuals in free-for-all) with your team or your own row highlighted. Where the points came from is on the Competitions tab ([Competitions list](#competitions-list)).
 
 ### Finishing
 - Bracket and Heats finish when the final match is recorded; Survival when one entrant is left (or, scored by last survivor, one team); Ranking when the order is entered.

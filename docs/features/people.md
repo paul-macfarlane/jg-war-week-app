@@ -39,7 +39,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 - Import is only available while the edition is in Setup. Once it's Live, people are added and edited by hand. Adding a person by hand searches everyone in the app first; "Add someone new" only if they're not there.
 
 ### Team view
-- A team's view shows its color, leaders, members ranked by the points each has contributed (then by name), and the points it earned in each competition and from subjective points.
+- A team's view shows its color, leaders, members ranked by the points each has contributed (then by name), and its total.
 
 ### Person page
 - Shows the person's results and the points they've contributed in the current edition (what counts is in [competitions.md](competitions.md#points-and-standings)), and across years: editions, team each year, 1st place finishes they can be tied to (as for a person's points) and awards.
