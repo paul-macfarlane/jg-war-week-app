@@ -46,7 +46,7 @@ Home, Competitions, Info and Archive for everyone; Manage for Organizers (editio
 Structured data only where the app computes something or it's history people care about: editions, teams and roster, competitions, matches, results, points, standings, awards. Everything else is an Organizer-written page (rich text and links, no images), listed under Info in the order Organizers set (e.g. schedule above FAQ). JG branding ships with the app. Sign-up forms and similar stay as external links in pages.
 
 ### Saving
-Settings and edits save as you make them; there's no Save button to miss. Recording a result, creating something new and anything destructive (delete, end, remove) are explicit actions.
+Settings and edits save as you make them; there's no Save button to miss. Recording a result, giving or editing subjective points, creating something new and anything destructive (delete, end, remove) are explicit actions.
 
 ### Times
 Every time is shown in Eastern Time, matching the schedule pages.
