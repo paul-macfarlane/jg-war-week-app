@@ -29,7 +29,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 ### Awards
 - Organizers enter an edition's awards (e.g. MVPs, Top Biller, Black Midnight finishers): honors with recipients, no points.
 - An award has a free-text name (e.g. "Red MVP", "Top Biller – 1st") and an optional one-line description. Recipients are people on the edition's roster.
-- An edition's awards are listed below its standings once it has any.
+- An edition's awards show with its standings once it has any.
 
 ### Home
 - Home shows the current edition: the Live one, else the highest-numbered Ended one.
