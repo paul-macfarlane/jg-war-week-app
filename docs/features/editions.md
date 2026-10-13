@@ -33,7 +33,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 
 ### Home
 - Home shows the current edition: the Live one, else the highest-numbered Ended one.
-- At the top, only when it has something in it: the competitions you host and your open matches where you can self-report.
+- At the top, only when it has something in it: the competitions you host and your open matches where you can self-report (a Ranking once you have a score in it).
 - Then the standings ([competitions.md](competitions.md#points-and-standings)). An Ended edition shows its winner.
 
 ### Pages
