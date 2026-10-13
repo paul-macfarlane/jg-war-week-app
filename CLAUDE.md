@@ -3,15 +3,10 @@
 Rebuild of War Week, the app for Jahnel Group's yearly War Week: live standings, results and history.
 
 ## Docs
-Read before any work, per the global standards:
-- `docs/requirements.md`: profile, roles, features, Deferred items. Settled.
+- `docs/requirements.md`: profile, roles, features and their status, Deferred items.
 - `docs/features/`: `competitions.md` (formats, scoring, self-report, standings), `editions.md` (lifecycle, home, install, archive, awards), `people.md` (sign-in incl. partners, roster, person page, Organizers).
-- `docs/architecture.md`: stack, structure and decisions. Settled; follow it.
-- `docs/work/<slug>.md`: one per work package, on its branch; deleted in the PR that finishes it.
-- Screens and docs change together: a rule change updates the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo) in the same piece of work, and a screen change that alters a rule updates the docs.
+- `docs/architecture.md`: stack, structure and decisions.
+- The [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo) holds every approved screen; each feature doc says which parts are its own.
 
-## Status
-No code yet. Feature status lives in the features table in `docs/requirements.md`; work in progress is an open PR. Design system and screens are approved (links in `docs/requirements.md` and the feature docs). Next: pitch the designs to Jason, fold his feedback into the docs, then `/implement`.
-
-## Reference
-The previous version lives at `~/Code/jg-war-week-proto`. Use it to see how things worked, not as a source of requirements or code. Nothing carries over unless it's in the docs above.
+## Boundaries
+- The previous version lives at `~/Code/jg-war-week-proto`. Use it to see how things worked, not as a source of requirements or code. Nothing carries over unless it's in the docs above.

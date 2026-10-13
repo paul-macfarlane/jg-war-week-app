@@ -98,7 +98,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 
 ### Finishing
 - Bracket and Heats finish when the final match is recorded; Survival when one entrant is left (or, scored by last survivor, one team).
-- Ranking and Participation are open-ended: a host or Organizer taps **Finish** (the Ranking record screen offers **Save and finish**), or the edition ends ([editions.md](editions.md#lifecycle)).
+- Ranking and Participation are open-ended: a host or Organizer taps **Finish**, or the edition ends ([editions.md](editions.md#lifecycle)).
 - No close/reopen ceremony. Editing a finished competition updates points and standings recalculate.
 
 ### Ties that block advancement
