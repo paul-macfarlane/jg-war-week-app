@@ -63,7 +63,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Participation and Best score** have no start: they're in progress from the first mark or attempt.
 
 ### Recording results
-- Each competition sets how a match is decided: **higher score wins**, **lower score wins**, or **finishing order**.
+- Each competition except Survival sets how a match is decided: **higher score wins**, **lower score wins**, or **finishing order**. A Survival round records who goes through.
 - With scores, the host enters only scores and the order follows. Manual ordering is only needed for tied scores or when there are no scores.
 - Bracket matches can't tie; the host picks a winner.
 - A competition decided by score can set a **score unit** (e.g. steaks, hours), shown after its scores. Blank shows bare numbers.
