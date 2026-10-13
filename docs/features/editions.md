@@ -19,7 +19,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 - One edition is Live at a time. A Setup edition can exist alongside Live and Ended ones. A Setup edition can be deleted (e.g. created by mistake); the app shows what goes with it, and deleting is confirmed and permanent.
 - **Live → Setup** is allowed while nothing is recorded in it: no results, marks, attempts, entries or subjective points (e.g. made Live too early). Competitions can still be created and edited while Live.
 - **Setup → Ended** happens only when a past edition is backfilled by import ([architecture.md](../architecture.md)), so it's never public half-built. The app doesn't offer it.
-- **Ending** a Live edition finishes any open Participation and Best score competitions; their current points become final. Unfinished Ranking, Bracket, Heats and Survival competitions stay unfinished (their decided places still count; see [competitions.md](competitions.md#points-and-standings)) until an Organizer records the rest. Before confirming, the Organizer sees what's still open, what ending will do, and who wins.
+- **Ending** a Live edition finishes any open Ranking and Participation competitions; their current points become final. Unfinished Bracket, Heats and Survival competitions stay unfinished (their decided places still count; see [competitions.md](competitions.md#points-and-standings)) until an Organizer records the rest. Before confirming, the Organizer sees what's still open, what ending will do, and who wins.
 - **Ended → Live** is allowed for the highest-numbered edition (e.g. ended by mistake mid-week) if no other edition is Live. Competitions finished by ending stay finished. Hosts and participants get back what they have in any Live edition.
 
 ### Winner
@@ -33,7 +33,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 
 ### Home
 - Home shows the current edition: the Live one, else the highest-numbered Ended one.
-- At the top, only when it has something in it: the competitions you host and your open matches where you can self-report.
+- At the top, only when it has something in it: the competitions you host and your open matches where you can self-report (a Ranking once you have a score in it).
 - Then the standings ([competitions.md](competitions.md#points-and-standings)). An Ended edition shows its winner.
 
 ### Pages
