@@ -1,12 +1,12 @@
 # Editions
 
-**Features:** Edition lifecycle, Home, Install to home screen, Archive, Awards, Pages
+**Features:** Edition lifecycle, Home, Archive, Awards, Pages
 
 ## Core journey
 **Organizer:** sets up an edition (teams, hosts, competitions, pages), makes it Live, runs it, ends it, and it lands in the archive.
 
 ## Screens
-Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): Participant page (Home in every state, install tip and sheets, Info, Archive); Organizer page, Edition row (lifecycle, end, transitions, winner change) and Points and awards row (awards); Wider screens page.
+Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): Participant page (Home in every state, Info, Archive); Organizer page, Edition row (lifecycle, end, transitions, winner change) and Points and awards row (awards); Wider screens page.
 
 ## Rules
 
@@ -39,12 +39,6 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 ### Pages
 - Every page belongs to one edition. Organizers create, rename, reorder and delete pages; deleting is confirmed and permanent.
 - Info shows the current edition's pages.
-
-### Install to home screen
-- The app can be added to a phone's home screen as "War Week" with the JG logo. It opens to Home.
-- On a phone where it isn't installed, the avatar menu has **Install app**. It shows the steps for that phone: one tap on Android; Share, then Add to Home Screen on iPhone. Inside another app's browser (e.g. Slack) it first says to open the page in Safari or Chrome.
-- While an edition is Live, Home shows a one-line tip pointing to Install app until it's installed or dismissed. Dismissing is remembered on that phone.
-- Nothing about installing shows once it's installed, or on a computer.
 
 ### Archive
 - Lists every Ended edition by number. Opening one shows the same screens as the current edition (standings and winner, competitions, pages).

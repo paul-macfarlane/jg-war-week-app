@@ -33,7 +33,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Hosts** set the format, description, entrants, how a match is decided, the attempts switch, the Ranking cutoff, the self-entry switch and the self-report switch, and record every result in their competitions, including ones they took part in. Organizers can do anything a host can, so they can set a competition up as far as they like before handing it over.
 - Each competition has one setup screen, reached from its page. Organizers edit all of it; its hosts edit everything except the name, hosts, point values and scoring choices, which they see read-only.
 - A competition whose format needs points or a scoring choice that isn't set yet says so to its hosts and Organizers.
-- A **description** is optional (what it is, its rules), in the same restricted rich text as pages ([requirements](../requirements.md#structured-vs-pages)).
+- A **description** is optional (what it is, its rules), in the same restricted rich text as pages ([requirements](../requirements.md#structured-data-vs-pages)).
 - An Organizer can turn off **Awards points** (e.g. qualifiers); the competition then shows "No points" and is never flagged as not set.
 - Once the first result is recorded, the format, entrant type, how a match is decided, the attempts switch, how a Ranking scores teams and the 3rd place match are fixed. Points, description, the Ranking cutoff, self-entry, self-report and hosts can change any time.
 - **Deleting:** before deleting, the app shows the impact (matches and points removed, and from whom). Deletion is permanent.
