@@ -88,23 +88,23 @@ Several rows can share one feature doc.
 - Marketing or "about" pages.
 - Offline support.
 - Sign-ups other than entering a competition (e.g. meals, workouts). They stay as external links in pages unless the in-app sign-up proposal under Needs buy-in is approved.
-- Team drafting. Teams are drafted outside the app and arrive through the sign-up sheet.
 - Copying an edition forward. Each year is different; text worth keeping is copied from the archived page.
 - People search. Organizers and hosts find people through pickers; person pages are reached as Navigation describes.
-- Notifications (push, email or in-app). Announcements stay in Slack; Home shows what needs you.
 - Accomplishments / immunity (lighter than awards, as in War Week X).
 - A "War Week Wrapped" recap. The person page already shows a person's week.
 
 ## Needs buy-in
 Proposals that need Jason's yes before building.
 - In-app sign-up for War Week, replacing the sign-up sheet, together with RSVPs for anything that needs a headcount (meals, workouts, Black Midnight, drinks after work). Teams are still drafted outside the app, so the proposal needs a way for drafted teams to get in without the sign-up sheet.
-- Running closing ceremonies from the app. Jason runs them from Google Slides today, which is probably enough; only worth building if he sees value in it.
+- Running closing ceremonies from the app. Jason runs them from Google Slides today, which is probably enough. The one gain is that a lot of the deck's content is already in the app's awards; probably not enough on its own to build it.
 - Per-edition theme: Organizers pick a color from a short list of presets, each checked for contrast in dark and light, an optional matching background tint, and a headline font. JG logo, body text and layout don't change. Trades some JG branding consistency for each year's flair. Mocked for the pitch.
 - Hosts creating their own competitions and setting their points. Trades Organizers' single view of point balance for less setup work for Jason.
 - Standings over time: how the standings changed over the week, live and archived. Free-for-all shows the top 5 plus you. Mocked for the pitch.
 - All-time records across editions in the Archive (most 1st place finishes, most awards). Mocked for the pitch.
 - Hidden drafts: preparing pages, competitions or subjective points privately in a Live edition (e.g. secret Team Night events) and revealing them later. Standings are never hidden.
 - Negative subjective points, for penalties.
+- Notifications: opt-in push notifications on phones with the app installed, for the moments that need you: your next match is set, a result you're in was recorded, and (for hosts) a player self-reported in your competition. No email or in-app inbox; announcements stay in Slack. Talked through, not mocked.
+- Team drafting in the app, after War Week XII. Teams are drafted outside the app today and arrive through the sign-up sheet.
 
 ## Suggestions
 Ideas from others at JG, captured with who suggested them. None yet.
