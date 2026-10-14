@@ -55,7 +55,7 @@ Built and demoed on Paul's account; moved to a JG-owned Vercel Pro team (with th
 
 ### Migrations run from a GitHub Action, not the Vercel build
 A failed deploy must never leave production's schema ahead of its code, least of all during War Week. Every migration must work with the code already deployed. Staging runs on a Neon branch.
-- **Alternative:** migrate in the Vercel build (prototype). Rejected for the reason above.
+- **Alternative:** migrate in the Vercel build. Rejected for the reason above.
 
 ### Accounts, people and sign-in policy are separate
 - **Account:** a Better Auth user with one or more provider logins. Adding a provider (e.g. Microsoft) is configuration.
@@ -99,7 +99,7 @@ The database stores facts: match entrants with scores or finishing order, partic
 ### One match model for all match formats
 Ranking, Bracket, Heats and Survival share one shape: a competition has entrants (a person, squad or team, per its entrant type), rounds, matches, and match entrants with a score and/or place; a Ranking with attempts on stores each attempt. Participation has completions (with optional tier). Each format is a pure module that builds the first round (where it has a start), advances when a match is recorded (including flagging ties that block advancement) and knows when it's finished.
 - **Why:** it's how the spec describes formats, so the schema matches how hosts think. Scoring and history read one shape. New formats (Deferred Swiss and round robin) are new modules on the same tables.
-- **Alternative:** tables per format (prototype). Rejected: every new format adds tables and read paths.
+- **Alternative:** tables per format. Rejected: every new format adds tables and read paths.
 
 ### Testing: most confidence from the domain and the services
 - **Unit:** the pure domain (formats, scoring, permissions, sign-in policy). The bulk of the tests.
