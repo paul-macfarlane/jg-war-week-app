@@ -47,7 +47,7 @@ Code is grouped by feature so a work package or feature spec maps to one folder.
 
 ### One Next.js app, no separate API
 Server-rendered pages for reads, Server Actions for writes. Install to home screen is a web manifest, not a native app.
-- **Alternative:** Vite SPA + Hono API (picksleagues). Rejected: API-first only pays off for a non-web client, and nothing in the requirements or Deferred list needs one. It would mean two deploy units and a contract layer for no use case.
+- **Alternative:** Vite SPA + Hono API (picksleagues). Rejected: API-first only pays off for a non-web client, and nothing in the requirements needs one. It would mean two deploy units and a contract layer for no use case.
 
 ### Vercel, moving to Jahnel Group ownership before War Week XII
 Built and demoed on Paul's account; moved to a JG-owned Vercel Pro team (with the database, OAuth client and domain) before War Week XII. Hobby is for non-commercial personal use, and Jason needs access if Paul is unavailable during the week. All configuration comes from environment variables so the move is configuration, not code.
@@ -86,7 +86,7 @@ Every page reads from the database at request time; no data caching. A write ref
 
 ### Pages: restricted rich text, links for everything else
 Organizer pages and competition rules allow headings, paragraphs, bold/italic, lists and links (`https:` and `mailto:` only). Stored as JSON, validated against that schema, and rendered on the server as semantic HTML, never raw HTML. This matches what the old Google Sites wikis actually used (11 years of exports: day headings, event lines, FAQ, sign-up links). Collapsible sections (e.g. FAQ) are decided in design; if wanted, they are one more block type.
-- **Not in v1:** tables (Google Sites has no native tables and phone tables are poor), images and media (Deferred), embeds. Drive files and media are linked, not embedded: embedded Drive content fails without Google cookies in the frame (Safari, installed iOS apps) and for partner users without access. Each is a later schema addition, not a rewrite. Inline media will need blob storage, proposed when images are approved.
+- **Not in v1:** tables (Google Sites has no native tables and phone tables are poor), images and media (Before War Week XII), embeds. Drive files and media are linked, not embedded: embedded Drive content fails without Google cookies in the frame (Safari, installed iOS apps) and for partner users without access. Each is a later schema addition, not a rewrite. Inline media will need blob storage, proposed when images are approved.
 - **Alternative:** Markdown textarea. Rejected: harder for Jason than the wiki.
 - **Alternative:** hosted CMS. Rejected: content outside the app is the scattered-history problem again.
 
@@ -98,7 +98,7 @@ The database stores facts: match entrants with scores or finishing order, partic
 
 ### One match model for all match formats
 Ranking, Bracket, Heats and Survival share one shape: a competition has entrants (a person, squad or team, per its entrant type), rounds, matches, and match entrants with a score and/or place; a Ranking with attempts on stores each attempt. Participation has completions (with optional tier). Each format is a pure module that builds the first round (where it has a start), advances when a match is recorded (including flagging ties that block advancement) and knows when it's finished.
-- **Why:** it's how the spec describes formats, so the schema matches how hosts think. Scoring and history read one shape. New formats (Deferred Swiss and round robin) are new modules on the same tables.
+- **Why:** it's how the spec describes formats, so the schema matches how hosts think. Scoring and history read one shape. New formats (Swiss and round robin, before War Week XII) are new modules on the same tables.
 - **Alternative:** tables per format. Rejected: every new format adds tables and read paths.
 
 ### Testing: most confidence from the domain and the services
@@ -119,10 +119,9 @@ Sentry on server and client alerts on unhandled errors. It is added before War W
 War Week XI's results (for the check-in) and any backfilled edition are loaded by a one-off import script that calls the same services, so every rule and validation applies. Imported results are marked as imported rather than recorded by a person. A backfilled edition goes straight from Setup to Ended.
 - **Alternative:** a seed script writing tables directly. Rejected: it would bypass the rules the archive guard test depends on.
 
-### Room for Deferred requirements
-Each Deferred item fits without a rewrite:
+### Room for Before War Week XII items
+Each item fits without a rewrite:
 - **League formats (Swiss, round robin):** new format modules on the same rounds and matches. Scoring only sees final places, so it doesn't change.
-- **Best-of matches:** works today by recording games won as the match score (higher score wins). Per-game detail, if wanted, is a child table of match.
 - **Qualifier into bracket seeding:** hosts can already set round-one order by hand. Automatic chaining is a source-competition setting that builds the order from its final places.
 - **Participation result auto-creating an award:** an award gains an optional source competition, and its recipients come from that competition's completions.
 - **Backfilling editions before XI:** through the same import path as XI. Where only final results are known, a Ranking competition records them; where only team totals are known, subjective points with a reason fill the gap.
