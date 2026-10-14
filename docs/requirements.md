@@ -34,7 +34,7 @@ It must be **easy to use for everyone.** Participants find what they need in a t
 
 ### Roles
 - **Organizer:** runs the whole edition (Jason, Paul). Manages the Organizer list.
-- **Host:** runs one or more competitions (e.g. a pool tournament host), as set out in [competitions.md](features/competitions.md#setup). Assigned by an Organizer.
+- **Host:** runs one or more competitions (e.g. a pool tournament host), as set out in [competitions.md](features/competitions.md#hosts). Assigned by an Organizer.
 - **User:** anyone who signs in. Users can read everything except Setup editions ([editions.md](features/editions.md#lifecycle)) and emails ([people.md](features/people.md#people)).
 - **Participant:** a person on the edition's roster. Participants who are also users can self-report results where a host allows it.
 
@@ -57,25 +57,25 @@ Times the app shows are in the viewer's own time zone. Times in pages are shown 
 
 | Feature | Use case (who, when, and what it gets them) | Detail | Status |
 |---|---|---|---|
-| Sign in | Any employee opening the app with their Jahnel Group Google account, so it shows their team, their matches and what needs them | [features/people.md](features/people.md) | todo |
-| Partner sign-in | An LTI or InfoLink participant opening the app during War Week XII, so they can see their team and enter and report competitions like everyone else | [features/people.md](features/people.md) | todo |
-| Home | Anyone opening the app to see what needs them and where they stand, without digging through Slack | [features/editions.md](features/editions.md) | todo |
-| Standings | A participant on Tuesday night checking who's ahead, without waiting for Jason to tally it | [features/competitions.md](features/competitions.md) | todo |
-| Competitions & results | A host recording a bracket match as it finishes, so standings update without reporting back to Jason | [features/competitions.md](features/competitions.md) | todo |
-| Match history | A pool player checking how the other side of the bracket is going; someone who missed Tournament Night looking up how the Smash bracket played out, without asking the host | [features/competitions.md](features/competitions.md) | todo |
-| Self-entry | A player entering the pool bracket from their phone, so the host doesn't have to chase who's in | [features/competitions.md](features/competitions.md) | todo |
-| Self-report | A player in a large tournament reporting their own match so the host doesn't have to chase every result | [features/competitions.md](features/competitions.md) | todo |
-| Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition, so they count in the standings and everyone sees why | [features/competitions.md](features/competitions.md) | todo |
-| Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies, so they stay with the edition's history | [features/editions.md](features/editions.md) | todo |
-| Teams & roster | Jason importing the War Week sign-up sheet in one go, instead of entering over 100 people by hand | [features/people.md](features/people.md) | todo |
-| Team view | A participant on day one seeing who's on their team and who leads it, so they know who they're competing alongside | [features/people.md](features/people.md) | todo |
-| Hosts | Jason creating a competition and assigning its host before the week, so the host runs it and records results without going through Jason | [features/competitions.md](features/competitions.md) | todo |
-| Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki, so everything about the week is in the same place as the standings | [features/editions.md](features/editions.md) | todo |
-| Edition lifecycle | Jason creating War Week XII, running it, and ending it with a winner, so he controls when it goes public and when results are final | [features/editions.md](features/editions.md) | todo |
-| Archive | Anyone looking back at who won War Week IX and how, instead of hunting through old wikis | [features/editions.md](features/editions.md) | todo |
-| Person page | A participant checking their results and the points they've contributed this week, to see their part in the standings; anyone looking at everything one person has won across years, so wins aren't lost from one year to the next | [features/people.md](features/people.md) | todo |
-| Organizer list | Jason adding Paul as an Organizer, so running War Week doesn't rest on one person | [features/people.md](features/people.md) | todo |
-| Install to home screen | A participant adding the app to their phone's home screen for the week, so it's one tap away like any other app | [features/people.md](features/people.md) | todo |
+| Sign in | Any employee opening the app with their Jahnel Group Google account, so it shows their team, their matches and what needs them | [features/people.md#sign-in](features/people.md#sign-in) | todo |
+| Partner sign-in | An LTI or InfoLink participant opening the app during War Week XII, so they can see their team and enter and report competitions like everyone else | [features/people.md#sign-in](features/people.md#sign-in) | todo |
+| Home | Anyone opening the app to see what needs them and where they stand, without digging through Slack | [features/editions.md#home](features/editions.md#home) | todo |
+| Standings | A participant on Tuesday night checking who's ahead, without waiting for Jason to tally it | [features/competitions.md#points-and-standings](features/competitions.md#points-and-standings) | todo |
+| Competitions & results | A host recording a bracket match as it finishes, so standings update without reporting back to Jason | [features/competitions.md#competitions--results](features/competitions.md#competitions--results) | todo |
+| Match history | A pool player checking how the other side of the bracket is going; someone who missed Tournament Night looking up how the Smash bracket played out, without asking the host | [features/competitions.md#match-history](features/competitions.md#match-history) | todo |
+| Self-entry | A player entering the pool bracket from their phone, so the host doesn't have to chase who's in | [features/competitions.md#self-entry](features/competitions.md#self-entry) | todo |
+| Self-report | A player in a large tournament reporting their own match so the host doesn't have to chase every result | [features/competitions.md#self-report](features/competitions.md#self-report) | todo |
+| Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition, so they count in the standings and everyone sees why | [features/competitions.md#subjective-points](features/competitions.md#subjective-points) | todo |
+| Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies, so they stay with the edition's history | [features/editions.md#awards](features/editions.md#awards) | todo |
+| Teams & roster | Jason importing the War Week sign-up sheet in one go, instead of entering over 100 people by hand | [features/people.md#teams-and-roster](features/people.md#teams-and-roster) | todo |
+| Team view | A participant on day one seeing who's on their team and who leads it, so they know who they're competing alongside | [features/people.md#team-view](features/people.md#team-view) | todo |
+| Hosts | Jason creating a competition and assigning its host before the week, so the host runs it and records results without going through Jason | [features/competitions.md#hosts](features/competitions.md#hosts) | todo |
+| Pages | Jason writing the schedule, meals, FAQ, scoring overview and essentials for the week, as flexibly as the wiki, so everything about the week is in the same place as the standings | [features/editions.md#pages](features/editions.md#pages) | todo |
+| Edition lifecycle | Jason creating War Week XII, running it, and ending it with a winner, so he controls when it goes public and when results are final | [features/editions.md#lifecycle](features/editions.md#lifecycle) | todo |
+| Archive | Anyone looking back at who won War Week IX and how, instead of hunting through old wikis | [features/editions.md#archive](features/editions.md#archive) | todo |
+| Person page | A participant checking their results and the points they've contributed this week, to see their part in the standings; anyone looking at everything one person has won across years, so wins aren't lost from one year to the next | [features/people.md#person-page](features/people.md#person-page) | todo |
+| Organizer list | Jason adding Paul as an Organizer, so running War Week doesn't rest on one person | [features/people.md#organizers](features/people.md#organizers) | todo |
+| Install to home screen | A participant adding the app to their phone's home screen for the week, so it's one tap away like any other app | [features/people.md#install-to-home-screen](features/people.md#install-to-home-screen) | todo |
 
 Several rows can share one feature doc.
 

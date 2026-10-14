@@ -22,7 +22,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 - **Ending** a Live edition finishes any open Ranking and Participation competitions; their current points become final. Unfinished Bracket, Heats and Survival competitions stay unfinished (their decided places still count; see [competitions.md](competitions.md#points-and-standings)) until an Organizer records the rest. Before confirming, the Organizer sees what's still open, what ending will do, and who wins.
 - **Ended → Live** is allowed for the highest-numbered edition (e.g. ended by mistake mid-week) if no other edition is Live. Competitions finished by ending stay finished. Hosts and participants get back what they have in any Live edition.
 
-### Winner
+#### Winner
 - The winner is first place in the edition's standings; a tie shows co-winners.
 - An Organizer edit to an Ended edition that would change who's first is confirmed first, showing the before and after (e.g. "This makes Blue the winner instead of Red").
 
