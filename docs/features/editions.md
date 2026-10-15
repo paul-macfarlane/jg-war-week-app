@@ -6,7 +6,7 @@
 **Organizer:** sets up an edition (teams, hosts, competitions, pages), makes it Live, runs it, ends it, and it lands in the archive.
 
 ## Screens
-Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): Participant page (Home in every state, Info, Archive); Organizer page, Edition row (lifecycle, end, transitions, winner change) and Points and awards row (awards); Wider screens page.
+Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98eo): Participant page (Home in every state, Info, Archive); Organizer page, Edition row (lifecycle, end, transitions, winner change) and Points and awards row (awards). Wider-screen versions sit next to their phone screens.
 
 ## Rules
 
@@ -33,7 +33,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 
 ### Home
 - Home shows the current edition: the Live one, else the highest-numbered Ended one.
-- At the top, only when it has something in it: the competitions you host and your open matches where you can self-report (a Ranking once you have a score in it).
+- At the top, only when it has something in it: the competitions you host and your open matches where you can record your own result (a Ranking once you have a score in it).
 - Then the standings ([competitions.md](competitions.md#points-and-standings)). An Ended edition shows its winner.
 
 ### Pages

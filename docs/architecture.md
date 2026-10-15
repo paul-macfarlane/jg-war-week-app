@@ -103,7 +103,7 @@ Ranking, Bracket, Heats and Survival share one shape: a competition has entrants
 
 ### Testing: most confidence from the domain and the services
 - **Unit:** the pure domain (formats, scoring, permissions, sign-in policy). The bulk of the tests.
-- **Integration:** services and queries against real Postgres, including authorization (who may record, self-report, edit, delete) and transactions. No mocks of our own code.
+- **Integration:** services and queries against real Postgres, including authorization (who may record, record their own, edit, delete) and transactions. No mocks of our own code.
 - **E2E:** Playwright on a phone viewport for the three core journeys (participant, host, organizer), with axe accessibility checks. Run before merge to `main`, not on every PR.
 - **Every PR:** lint, format, typecheck, unit, integration, build.
 - Bug fixes get a test at the lowest level that catches them, not a new e2e spec.

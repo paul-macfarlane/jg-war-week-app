@@ -16,7 +16,7 @@ Owned by Paul.
 War Week runs on Slack channels, sign-up surveys, a wiki and a lot of chasing. The app makes it easier for each group involved:
 
 - **Organizers administer War Week without coordinating with every host** to collect results and enter them by hand: results land in the app as they happen. Other Organizer pain points come in where the app is the right home for them.
-- **Hosts run their competitions with less chasing.** People enter in the app instead of through a survey. The host records results or lets players self-report, instead of chasing people down, and nothing needs reporting back to Jason. Other host pain points come in where the app is the right home for them.
+- **Hosts run their competitions with less chasing.** People enter in the app instead of through a survey. The host records results or lets players record their own, instead of chasing people down, and nothing needs reporting back to Jason. Other host pain points come in where the app is the right home for them.
 - **Participants see what's going on and join in** without digging through Slack and hoping the wiki has their results: the schedule, live standings and match history, and they record their own entries and results. Once Organizers' and hosts' problems are solved, participants' own requests come next.
 - **Anyone can look back at past War Weeks:** who won and what happened, in one place instead of scattered or lost.
 
@@ -36,12 +36,14 @@ It must be **easy to use for everyone.** Participants find what they need in a t
 - **Organizer:** runs the whole edition (Jason, Paul). Manages the Organizer list.
 - **Host:** runs one or more competitions (e.g. a pool tournament host), as set out in [competitions.md](features/competitions.md#hosts). Assigned by an Organizer.
 - **User:** anyone who signs in. Users can read everything except Setup editions ([editions.md](features/editions.md#lifecycle)) and emails ([people.md](features/people.md#people)).
-- **Participant:** a person on the edition's roster. Participants who are also users can self-report results where a host allows it.
+- **Participant:** a person on the edition's roster. Participants who are also users can record their own results where a host allows it.
 
 ### Navigation
 - **Sections:** Home, Competitions, Info and Archive for everyone; Manage for Organizers (editions, teams and roster, competitions and hosts, subjective points, awards, Organizer list).
 - **Edit in place:** things are edited where they live. A host records on the match; an Organizer edits a page from the page.
 - **People and teams:** a person's page opens from standings and team member lists, and your own from your avatar menu. Tapping a team opens its team view. Names mentioned in passing (a host, an award recipient, a subjective-points entry, an entrant list) are plain text, and a row with another job (a match, a picker result) does that job. Each tap does one predictable thing: standings and team lists are where people go looking for a person, and making every name a link would put a second target inside rows that already do something.
+- **Highlighted tab:** a team view or person page keeps the tab it was opened from highlighted (from Home's standings, Home; from a competition, Competitions; your own page, whichever tab you were on), and back returns there.
+- **Wider screens:** the tab bar moves into the header, and breadcrumbs (e.g. Manage › Competitions › Smash) replace the back arrow. Everything else is the same screen as on a phone.
 - **Avatar menu:** your own page, theme (System, Dark or Light; System follows the phone), Install app (on phones, until installed) and Sign out.
 
 ### Structured data vs. pages
@@ -58,13 +60,13 @@ Times the app shows are in the viewer's own time zone. Times in pages are shown 
 | Feature | Use case (who, when, and what it gets them) | Detail | Status |
 |---|---|---|---|
 | Sign in | Any employee opening the app with their Jahnel Group Google account, so it shows their team, their matches and what needs them | [features/people.md#sign-in](features/people.md#sign-in) | todo |
-| Partner sign-in | An LTI or InfoLink participant opening the app during War Week XII, so they can see their team and enter and report competitions like everyone else | [features/people.md#sign-in](features/people.md#sign-in) | todo |
+| Partner sign-in | An LTI or InfoLink participant opening the app during War Week XII, so they can see their team, enter competitions and record their own results like everyone else | [features/people.md#sign-in](features/people.md#sign-in) | todo |
 | Home | Anyone opening the app to see what needs them and where they stand, without digging through Slack | [features/editions.md#home](features/editions.md#home) | todo |
 | Standings | A participant on Tuesday night checking who's ahead, without waiting for Jason to tally it | [features/competitions.md#points-and-standings](features/competitions.md#points-and-standings) | todo |
 | Competitions & results | A host recording a bracket match as it finishes, so standings update without reporting back to Jason | [features/competitions.md#competitions--results](features/competitions.md#competitions--results) | todo |
 | Match history | A pool player checking how the other side of the bracket is going; someone who missed Tournament Night looking up how the Smash bracket played out, without asking the host | [features/competitions.md#match-history](features/competitions.md#match-history) | todo |
 | Self-entry | A player entering the pool bracket from their phone, so the host doesn't have to chase who's in | [features/competitions.md#self-entry](features/competitions.md#self-entry) | todo |
-| Self-report | A player in a large tournament reporting their own match so the host doesn't have to chase every result | [features/competitions.md#self-report](features/competitions.md#self-report) | todo |
+| Self-recording | A player in a large tournament recording their own match so the host doesn't have to chase every result | [features/competitions.md#self-recording](features/competitions.md#self-recording) | todo |
 | Subjective points | Jason awarding spirit or bonus points, with a reason, outside any competition, so they count in the standings and everyone sees why | [features/competitions.md#subjective-points](features/competitions.md#subjective-points) | todo |
 | Awards | Jason entering MVPs, Top Biller and Black Midnight finishers after closing ceremonies, so they stay with the edition's history | [features/editions.md#awards](features/editions.md#awards) | todo |
 | Teams & roster | Jason importing the War Week sign-up sheet in one go, instead of entering over 100 people by hand | [features/people.md#teams-and-roster](features/people.md#teams-and-roster) | todo |
@@ -96,12 +98,12 @@ Several rows can share one feature doc.
 ## Needs buy-in
 Proposals that need Jason's yes before building.
 - In-app sign-up for War Week, replacing the sign-up sheet: one tap, since you're signed in, plus a few questions Organizers set (e.g. wanting to lead a team). It comes with RSVPs for anything that needs a headcount (meals, workouts, Black Midnight, drinks after work), with totals for Organizers. Sign-up comes before teams exist, so the edition needs a sign-up stage people can see before it's Live. Drafted teams get in through in-app team drafting, or by Organizers setting each person's team. Mocked for the pitch.
-- Presenting part of closing ceremonies from the app. Jason runs them from Google Slides, and most of the deck (photo recaps, thanks, the live Survivor game) stays there. The app could present what it already holds: each award revealed title first, then its recipients, and the winner. Probably not enough on its own to build. Mocked for the pitch.
+- Running closing ceremonies from the app, a reach goal: the whole deck Jason builds in Google Slides today (thanks, photo recaps, awards, winners, closing remarks, the live game's rules). Slides from the app's data fill themselves in: each award (its name, then who won), a competition's podium, the final standings, then the winner. Organizers add and order written and photo slides. Photo slides need image uploads ([Before War Week XII](#before-war-week-xii)); without them, photos stay in Slides. Mocked for the pitch.
 - Per-edition theme: Organizers pick a color from a short list of presets, each checked for contrast in dark and light, an optional matching background tint, and a headline font. JG logo, body text and layout don't change. Trades some JG branding consistency for each year's flair. Mocked for the pitch.
 - Hosts creating their own competitions and setting their points. Trades Organizers' single view of point balance for less setup work for Jason.
 - Standings over time: how the standings changed over the week, live and archived. Free-for-all shows the top 5 plus you. Mocked for the pitch.
 - All-time records across editions in the Archive (most 1st place finishes, most awards). Mocked for the pitch.
-- Hidden drafts: preparing pages, competitions or subjective points privately in a Live edition (e.g. secret Team Night events) and revealing them later. Standings are never hidden, so a hidden competition can't have results until it's revealed. Mocked for the pitch.
+- Scheduled reveals: Jason enters subjective points or an award when it comes to mind and sets when it shows. Until then only Organizers see it, and hidden subjective points don't count in standings. Competitions and pages are never hidden. A small convenience. Mocked for the pitch.
 - Negative subjective points, for penalties.
 - Slack posts: the app posts to one War Week channel when a competition finishes (its podium and points), when the lead changes hands, and with a standings summary each evening. Individual results aren't posted, so the channel stays readable. No push, email or in-app inbox. Mocked for the pitch.
 - Team drafting in the app, after War Week XII: team leaders pick in turns from the sign-up list in a live session, on a shared screen and their phones, and the picks become the roster. Teams are drafted outside the app today and arrive through the sign-up sheet. Mocked for the pitch.
