@@ -95,16 +95,16 @@ Several rows can share one feature doc.
 
 ## Needs buy-in
 Proposals that need Jason's yes before building.
-- In-app sign-up for War Week, replacing the sign-up sheet, together with RSVPs for anything that needs a headcount (meals, workouts, Black Midnight, drinks after work). Teams are still drafted outside the app, so the proposal needs a way for drafted teams to get in without the sign-up sheet.
-- Running closing ceremonies from the app. Jason runs them from Google Slides today, which is probably enough. The one gain is that a lot of the deck's content is already in the app's awards; probably not enough on its own to build it.
+- In-app sign-up for War Week, replacing the sign-up sheet: one tap, since you're signed in, plus a few questions Organizers set (e.g. wanting to lead a team). It comes with RSVPs for anything that needs a headcount (meals, workouts, Black Midnight, drinks after work), with totals for Organizers. Sign-up comes before teams exist, so the edition needs a sign-up stage people can see before it's Live. Drafted teams get in through in-app team drafting, or by Organizers setting each person's team. Mocked for the pitch.
+- Presenting part of closing ceremonies from the app. Jason runs them from Google Slides, and most of the deck (photo recaps, thanks, the live Survivor game) stays there. The app could present what it already holds: each award revealed title first, then its recipients, and the winner. Probably not enough on its own to build. Mocked for the pitch.
 - Per-edition theme: Organizers pick a color from a short list of presets, each checked for contrast in dark and light, an optional matching background tint, and a headline font. JG logo, body text and layout don't change. Trades some JG branding consistency for each year's flair. Mocked for the pitch.
 - Hosts creating their own competitions and setting their points. Trades Organizers' single view of point balance for less setup work for Jason.
 - Standings over time: how the standings changed over the week, live and archived. Free-for-all shows the top 5 plus you. Mocked for the pitch.
 - All-time records across editions in the Archive (most 1st place finishes, most awards). Mocked for the pitch.
-- Hidden drafts: preparing pages, competitions or subjective points privately in a Live edition (e.g. secret Team Night events) and revealing them later. Standings are never hidden.
+- Hidden drafts: preparing pages, competitions or subjective points privately in a Live edition (e.g. secret Team Night events) and revealing them later. Standings are never hidden, so a hidden competition can't have results until it's revealed. Mocked for the pitch.
 - Negative subjective points, for penalties.
-- Notifications: opt-in push notifications on phones with the app installed, for the moments that need you: your next match is set, a result you're in was recorded, and (for hosts) a player self-reported in your competition. No email or in-app inbox; announcements stay in Slack. Talked through, not mocked.
-- Team drafting in the app, after War Week XII. Teams are drafted outside the app today and arrive through the sign-up sheet.
+- Slack posts: the app posts to one War Week channel when a competition finishes (its podium and points), when the lead changes hands, and with a standings summary each evening. Individual results aren't posted, so the channel stays readable. No push, email or in-app inbox. Mocked for the pitch.
+- Team drafting in the app, after War Week XII: team leaders pick in turns from the sign-up list in a live session, on a shared screen and their phones, and the picks become the roster. Teams are drafted outside the app today and arrive through the sign-up sheet. Mocked for the pitch.
 
 ## Suggestions
 Ideas from others at JG, captured with who suggested them. None yet.
