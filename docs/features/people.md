@@ -8,7 +8,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 ## Rules
 
 ### People
-- A person is a roster entry, owned by Organizers. A person can exist without an email and without ever signing in (e.g. Bucky the Horse); they can be entered by hosts but can't self-report.
+- A person is a roster entry, owned by Organizers. A person can exist without an email and without ever signing in (e.g. Bucky the Horse); they can be entered by hosts but can't record their own results.
 - A person has at most one email, and no two people share one (compared ignoring case). Emails are visible to Organizers only (roster, import, editing a person); everywhere else, including hosts' pickers, people appear by name.
 - A person's name is the one Organizers set, by import or by hand, and it's shown everywhere. People can't change their own yet; display names they set themselves are planned before War Week XII ([requirements](../requirements.md#before-war-week-xii)).
 - A person's avatar is the profile photo from their last sign-in, cleared when their email changes. Without one, it's their initials on their team's color in the edition being viewed, or neutral where there's no team (free-for-all, outside an edition).
@@ -43,7 +43,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 - A team's view shows its color, leaders, members ranked by the points each has contributed (then by name), and its total.
 
 ### Person page
-- Shows the person's results and the points they've contributed in the current edition (what counts is in [competitions.md](competitions.md#points-and-standings)), and across years: editions, team each year, 1st place finishes they can be tied to (as for a person's points) and awards.
+- Shows the person's results and the points they've contributed in the current edition (what counts is in [competitions.md](competitions.md#points-and-standings)), grouped as on the Competitions tab ([In progress, Not started, Finished](competitions.md#competitions-list)), then the subjective points naming them; and across years: editions, team each year, 1st place finishes they can be tied to (as for a person's points) and awards.
 - No edition-wide individual leaderboard in team editions; a team's member list is the only place its members are ranked.
 
 ### Install to home screen
