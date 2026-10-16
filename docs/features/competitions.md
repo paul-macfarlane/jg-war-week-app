@@ -37,7 +37,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - **Deleting:** before deleting, the app shows the impact (matches and points removed, and from whom). Deletion is permanent.
 
 #### Competitions list
-- The Competitions tab groups an edition's competitions as **In progress** (started, or anything recorded), **Not started** and **Finished** ([Finishing](#finishing)), each group in the order Organizers set. Each competition shows its point values and where its points went, one place per line: in free-for-all editions, each entrant that earned points; in team editions, every team, with its points (0 included). An open Ranking or Participation shows how many are in so far until it finishes. Subjective points and their reasons follow the competitions. This is the edition's only points breakdown: seeing every point value in one place lets Organizers keep points balanced. Competitions you host or take part in are marked.
+- The Competitions tab groups an edition's competitions as **In progress** (started, or anything recorded), **Not started** and **Finished** ([Finishing](#finishing)), each group in the order Organizers set. Each competition shows its point values and where its points went, one place per line, including places so far while it's in progress: in free-for-all editions, each entrant that earned points; in team editions, every team, with its points (0 included). Participation in a free-for-all edition instead shows how many are done, since every finisher earns the same points. Your place, your team's, and subjective points naming you are highlighted as in standings. Subjective points and their reasons follow the competitions. This is the edition's only points breakdown: seeing every point value in one place lets Organizers keep points balanced. Competitions you host or take part in are marked.
 - Competitions have no day or time; when they happen is on the schedule page.
 
 #### Entrants
@@ -95,7 +95,7 @@ In Heats or at a Ranking cutoff, the app flags the tie and the host picks who ad
 ### Self-recording
 - The host turns it on per competition; off by default. It isn't offered for **Survival**, a Ranking decided by order, or competitions with the **teams** entrant type, except a Ranking scored by sum of members or best member.
 - In Bracket and Heats, anyone in the match (including any squad member) can record its result or change it; the last change wins. Once the next round includes anyone from it, or a later match built on it has a result, only hosts and Organizers can change it.
-- In Participation, participants mark themselves done; in a Ranking by score, they log their own score or attempts, and any squad member can log the squad's. Participants can update their own score whoever entered it, and remove their own marks, scores and attempts, but not ones a host made. Participants only record for themselves or their squad.
+- In Participation, participants mark themselves done; in a Ranking by score, they log their own score or attempts, and any squad member can log the squad's. Participants can change or remove their own marks, scores and attempts, whoever entered them. Participants only record for themselves or their squad.
 - Once a competition is finished, only hosts and Organizers change its results, marks and attempts.
 - Their results count immediately. No opponent confirmation, disputes or approval queue. The honor system applies; hosts correct mistakes.
 
