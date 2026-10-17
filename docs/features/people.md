@@ -37,7 +37,7 @@ Approved in the [screens canvas](https://claude.ai/artifact/JNYqMR3uwFtcJrrRYv98
 - Jason pastes the sheet's rows, header included. Columns are matched by header name in any order, ignoring case and extra words (e.g. "Email Address"): Name, Email, Team, Leader. Other columns are ignored. If no Email column is found, the preview says so. Yes, Y, True, X or 1 in Leader marks a leader; No, False, 0 or blank doesn't. In free-for-all editions, Team and Leader are ignored.
 - The app matches existing people by email, then name, and shows existing vs. new before anything is saved. Names match ignoring case, spacing and apostrophe style. Teams named in the sheet that don't exist yet are listed as new teams in the preview.
 - Import adds and updates; it never removes. People on the roster but not in the paste are listed so Jason can remove them by hand.
-- Import is only available while the edition is in Setup. Once it's Live, people are added and edited by hand. Adding a person by hand searches everyone in the app first; "Add someone new" only if they're not there.
+- Import is available while the edition is in Setup or Live, so people who join after points start counting (e.g. new hires during War Week XII's three months) can come in from an updated sheet. It still only adds and updates. In a Live team edition, a sheet that would move someone to a different team shows the same before-and-after totals as moving them by hand. People can also be added and edited by hand: adding a person by hand searches everyone in the app first; "Add someone new" only if they're not there.
 
 ### Team view
 - A team's view shows its color, leaders, members ranked by the points each has contributed (then by name), and its total.

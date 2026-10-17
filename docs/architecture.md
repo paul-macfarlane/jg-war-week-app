@@ -11,7 +11,7 @@ Owned by Paul.
 - **Auth:** Better Auth, Google OAuth only for v1. No passwords. Keeps employee data in our own database.
 - **Pages and competition rules:** Tiptap editor; documents stored as JSON and rendered on the server. WYSIWYG for Jason and hosts, no raw HTML.
 - **Testing:** Vitest (unit, and integration against real Postgres), Playwright with axe for e2e. GitHub Actions for CI. Fast checks on every PR, core journeys before `main`.
-- **Observability:** structured JSON logs to Vercel; Sentry (free plan) for error alerts, added before War Week XII. Meets the small-group floor of alerting plus debuggable logs.
+- **Observability:** structured JSON logs to Vercel; Sentry (free plan) for error alerts, added before War Week XII goes Live (mid-November 2026, when points start counting). Meets the small-group floor of alerting plus debuggable logs.
 
 ## Structure
 Organized by feature, with the same layers inside each feature.
@@ -49,8 +49,8 @@ Code is grouped by feature so a work package or feature spec maps to one folder.
 Server-rendered pages for reads, Server Actions for writes. Install to home screen is a web manifest, not a native app.
 - **Alternative:** Vite SPA + Hono API (picksleagues). Rejected: API-first only pays off for a non-web client, and nothing in the requirements needs one. It would mean two deploy units and a contract layer for no use case.
 
-### Vercel, moving to Jahnel Group ownership before War Week XII
-Built and demoed on Paul's account; moved to a JG-owned Vercel Pro team (with the database, OAuth client and domain) before War Week XII. Hobby is for non-commercial personal use, and Jason needs access if Paul is unavailable during the week. All configuration comes from environment variables so the move is configuration, not code.
+### Vercel, moving to Jahnel Group ownership before War Week XII goes Live
+Built and demoed on Paul's account; moved to a JG-owned Vercel Pro team (with the database, OAuth client and domain) before War Week XII goes Live in mid-November, since real points are recorded from then. Hobby is for non-commercial personal use, and Jason needs access if Paul is unavailable during the week. All configuration comes from environment variables so the move is configuration, not code.
 - **Alternative:** Fly.io or Render containers. Rejected: more ops for an app that's idle most of the year.
 
 ### Migrations run from a GitHub Action, not the Vercel build
@@ -72,7 +72,7 @@ A failed deploy must never leave production's schema ahead of its code, least of
 - **Alternative:** Clerk or WorkOS. Rejected: a new third party holding employee personal data, an extra dependency during War Week, and a second user list to sync with people. Revisit only if a partner company requires sign-in through its own corporate identity provider.
 
 ### Recovery: surgical restore, and archive dumps at edition end
-Deleting a competition is permanent by design, and results keep only who recorded them and who last changed them. To undo a mistake, a copy of the database is restored with Neon to just before it, and only the affected rows are copied back, so everyone else's results since are kept. Neon's restore window is confirmed when the database moves to JG, and the steps are written down and rehearsed before War Week XII.
+Deleting a competition is permanent by design, and results keep only who recorded them and who last changed them. To undo a mistake, a copy of the database is restored with Neon to just before it, and only the affected rows are copied back, so everyone else's results since are kept. Neon's restore window is confirmed when the database moves to JG, and the steps are written down and rehearsed before War Week XII goes Live.
 
 Neon's history only reaches back days, so the archive also gets a long-term copy: when an edition ends and after any backfill, the database owner runs one documented `pg_dump` command and saves the file to a restricted JG Google Drive folder (it contains emails).
 - **Alternative:** soft delete, app-level undo or per-result history. Rejected: not in the requirements, and adds state to every query.
@@ -95,6 +95,12 @@ The database stores facts: match entrants with scores or finishing order, partic
 - **Why:** the spec lets points, decide-by, tiers, team scoring, squads and teams change at any time, and edits to finished competitions must recalculate. With a stored ledger every one of those actions must also rebuild points, and missing one shows wrong standings. Derived standings can't drift, and an edition is a few hundred rows, so computing is effectively free.
 - **Guarding history:** scoring rules are stored on each competition as data, so new rules are new options rather than changes to old behavior. A test pins each ended edition's final standings (starting with War Week XI) so any change that would alter the archive fails CI.
 - **Alternative:** a points ledger written on every change. Rejected: the same scoring logic plus a table and a rebuild on every mutation path. If stats ever want SQL-friendly totals, a view or cache can sit behind the scoring module without changing what's stored.
+- **Standings over time** come from the same module: it scores the facts recorded up to each moment, using each fact's recorded time. A correction shows as if it had always been right, since only who last changed a result is kept, not its earlier values. That's acceptable for a chart of how the edition went.
+- **Export** is the same module's output written as a spreadsheet on request; nothing is stored for it.
+
+### Slack posts from the server, never blocking a write
+The app posts through a Slack incoming webhook for the War Week channel, its URL an environment variable. A service that finishes a competition or changes who leads (compared before and after, inside the same action) queues its post after the write commits. The standings summary is a Vercel Cron job, weekly before the week and each evening during it. A failed post is logged and reported to Sentry, never retried into duplicates and never fails the write.
+- **Alternative:** a Slack app with a bot token. Rejected for now: a webhook posts to one channel, which is all the requirement needs, with no token to manage.
 
 ### One match model for all match formats
 Ranking, Bracket, Heats and Survival share one shape: a competition has entrants (a person, squad or team, per its entrant type), rounds, matches, and match entrants with a score and/or place; a Ranking with attempts on stores each attempt. Participation has completions (with optional tier). Each format is a pure module that builds the first round (where it has a start), advances when a match is recorded (including flagging ties that block advancement) and knows when it's finished.
@@ -110,7 +116,7 @@ Ranking, Bracket, Heats and Survival share one shape: a competition has entrants
 - **Alternative:** e2e on every PR. Rejected: slower PRs; core journeys before merge to `main` is enough.
 
 ### Sentry for alerts, structured logs for debugging
-Sentry on server and client alerts on unhandled errors. It is added before War Week XII, on JG-owned accounts, not for the check-in; the action wrapper's `reportError()` and the route error boundaries are the seams it plugs into. Each server action logs one JSON line (actor, action, outcome, duration) with a request id shared with Sentry. Sentry receives account ids only: no emails, names or request bodies. Who recorded each result and who last changed it are stored with the result (a requirement), which answers most score questions better than logs.
+Sentry on server and client alerts on unhandled errors. It is added before War Week XII goes Live, on JG-owned accounts, not for the check-in; the action wrapper's `reportError()` and the route error boundaries are the seams it plugs into. Each server action logs one JSON line (actor, action, outcome, duration) with a request id shared with Sentry. Sentry receives account ids only: no emails, names or request bodies. Who recorded each result and who last changed it are stored with the result (a requirement), which answers most score questions better than logs.
 - **Alternative:** Vercel logs only. Rejected: no alerting, below the profile floor.
 - **Alternative:** hand-rolled notifier. Rejected: misses client errors and stack traces.
 - Sentry moves to JG ownership with everything else.
