@@ -1,6 +1,6 @@
 # Competitions
 
-**Features:** Competitions & results, Hosts, Self-entry, Self-recording, Match history, Standings, Subjective points
+**Features:** Competitions & results, Hosts, Self-entry, Self-recording, Match history, Standings, Standings over time, Slack posts, Subjective points
 
 Priorities, in order: easy for participants, hosts and organizers, then flexible. Simple choices in front, one flexible model behind.
 
@@ -51,7 +51,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 - In Bracket, Heats and Survival, late entrants can be added only during the first round, and only where no played match has to be redone (e.g. a new heat, or a first-round match not yet played). Hosts can edit an unplayed match's entrants by hand.
 
 #### Building matches
-- **Bracket and Heats:** the host draws round one: the app shuffles the entrants into matches or heats, shown only to hosts and Organizers. Hosts swap entrants between matches, move them between heats, or redraw, as often as they like; starting the competition makes the round public. The entrant list is only who's in.
+- **Bracket and Heats:** the host draws round one: the app shuffles the entrants into matches or heats, shown only to hosts and Organizers. Hosts swap entrants between matches, move them between heats, or redraw, as often as they like; starting the competition makes the round public. On phones, tapping someone swaps or moves them; on wider screens hosts can also drag them. The entrant list is only who's in.
 - **Survival:** starting the competition opens round one with every entrant in the pool.
 - **Bracket:** when the count isn't a power of two, the draw gives byes at random; hosts can swap them like any other place. Optional "Play a 3rd place match" (off by default).
 - **Heats:** the host picks a heat size and how many advance; the draw splits entrants as evenly as possible (uneven heats allowed). Hosts can add a heat to the current round (e.g. for late arrivals). A Heats competition can have any number of rounds. Once every heat in a round has a result, the host draws the next round: the top N of each heat go through and are shuffled into heats of a size the host picks (e.g. heats of 4, then a final heat), shown only to hosts and Organizers until they start it, with the same moves and redraws. A round of one heat is the final.
@@ -61,6 +61,7 @@ Subjective points and awards are not competitions. Events that aren't competitio
 #### Recording results
 - Each competition except Survival sets how a match is decided: **higher score wins**, **lower score wins**, or **finishing order**. A Survival round records who goes through.
 - With scores, the host enters only scores and the order follows. Manual ordering is only needed for tied scores or when there are no scores.
+- **Placing by order** (a Ranking decided by order, a finishing-order match or heat, and ordering tied scores): the host drags entrants into order, and places renumber as they go. Dropping one onto another ties them, and the next place is skipped. Each row also has move up and move down buttons, so placing works without dragging (keyboard, screen readers, a long list on a small phone). Nobody types a place number.
 - Bracket matches can't tie; the host picks a winner.
 - A competition decided by score can set a **score unit** (e.g. steaks, hours), shown after its scores. Blank shows bare numbers.
 - **Ranking by score:** each entrant has one score, which the host (or, with self-recording, the entrant) updates; the last change wins. With **"Count best of several attempts"** on (off by default), each entry is an attempt and the best one counts.
@@ -112,14 +113,24 @@ In Heats or at a Ranking cutoff, the app flags the tie and the host picks who ad
 - **Team editions:** points go to the team. An individual's points count for their team.
 - **Free-for-all editions:** points go to individuals. Each member of a squad gets the squad's full points.
 - **A person's points** (person page, team editions) are the points they can be concretely tied to: their own placings, their squad's points (full to each member), Survival team points for the team's last survivor(s), Participation completions including team rankings by headcount or percentage (credited to each person who completed), member-scored team Rankings (credited to each member with a score for sum of members, or to the best member), and subjective points naming them. Other team-entrant results and subjective points naming no one show on members' pages but don't count toward their points.
-- **Standings** show ranked totals (teams, or individuals in free-for-all) with your team or your own row highlighted. Where the points came from is on the Competitions tab ([Competitions list](#competitions-list)).
+- **Standings** show ranked totals (teams, or individuals in free-for-all) with your team or your own row highlighted. Where the points came from is on the Competitions tab ([Competitions list](#competitions-list)). Totals can be below 0 (penalties).
+
+### Standings over time
+- A chart of each team's total (or, in free-for-all, the top 5 plus you) from when the edition went Live to now, live and in the archive. Each point is when a result, mark, attempt or subjective entry changed the totals, so it's derived from what's recorded, never stored separately.
+- Over a long edition (e.g. War Week XII, November to February), the time axis shows the weeks before War Week compressed and the week itself in full, since that's where most points move.
+
+### Slack posts
+- The app posts to one War Week Slack channel, set by an Organizer: when a competition finishes (its podium and points), when the lead changes hands, and a standings summary, weekly before War Week and each evening during it. Individual results aren't posted, so the channel stays readable.
+- No push, email or in-app inbox.
 
 ### Subjective points
-- Organizers only. Each entry has positive points and a reason shown to everyone. Entries can be edited and deleted.
+- Organizers only. Each entry has points and a reason shown to everyone; negative points are penalties (e.g. the tense death pool, where Zach, as an Organizer, takes points off for each tense error he catches). Entries can be edited and deleted.
+- An entry can have an optional **group** (e.g. "Tense death pool"), picked from the edition's groups or typed new. On the Competitions tab each group is its own section with its entries and their total, after the competitions; ungrouped entries follow as Subjective points.
 - **Team editions:** given to a team, optionally naming the team members who earned it.
 - **Free-for-all editions:** given to a person.
 
 ## Edge cases
+- **A one-off list of people earning points** (e.g. War Week XII's people with no tense errors since February): a Participation competition, marked once, rather than a subjective entry per person.
 - **Switching format before play:** switching to Ranking or Participation, which have no entrant list, clears the entrants, after a confirmation.
 - **Running tallies** (e.g. 2023's stairs, up to 5 a day, ranked by total): the host (or, with self-recording, each person) updates their running total as their Ranking score.
 - **Consolation tables** (e.g. 2023's Catan "Second Table Champion"): run as a separate Ranking competition.
